@@ -11,7 +11,7 @@ namespace ERP.Agendamento.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            ViewData["Message"] = "Mensagem preparada programaticamente no controller.";
 
             return View();
         }
