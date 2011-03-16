@@ -11,7 +11,7 @@ namespace ERP.Agendamento.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Mensagem preparada programaticamente no controller.";
+            ViewData["Message"] = "ERP Clínica Médica - Módulo de Agendamento";
 
             return View();
         }

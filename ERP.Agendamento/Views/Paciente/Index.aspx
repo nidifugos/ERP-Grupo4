@@ -8,12 +8,12 @@
 
     <h2>Pacientes</h2>
 
+    <p>
+        <%: Html.ActionLink("Cadastrar novo", "Create") %>
+    </p>
     <table>
         <tr>
-            <th></th>
-            <th>
-                Id
-            </th>
+            <th></th>            
             <th>
                 Nome
             </th>
@@ -27,54 +27,18 @@
                 Sexo
             </th>
             <th>
-                DataNascimento
-            </th>
-            <th>
-                Peso
-            </th>
-            <th>
-                Altura
-            </th>
-            <th>
-                TipoSanguineo
-            </th>
-            <th>
-                AfiliacaoPai
-            </th>
-            <th>
-                AfiliacaoMae
-            </th>
-            <th>
-                EnderecoResidencial
-            </th>
-            <th>
-                TelefoneResidencial
-            </th>
-            <th>
-                EnderecoComercial
-            </th>
-            <th>
-                TelefoneComercial
-            </th>
-            <th>
-                TelefoneCelular
-            </th>
-            <th>
-                Convenio
-            </th>
+                Data de nascimento
+            </th>            
         </tr>
 
     <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
-            <td>
-                <%: item.Id %>
-            </td>
+                <%: Html.ActionLink("Editar", "Edit", new { id=item.Id }) %> |
+                <%: Html.ActionLink("Detalhes", "Details", new { id=item.Id })%> |
+                <%: Html.ActionLink("Remover", "Delete", new { id=item.Id })%>
+            </td>            
             <td>
                 <%: item.Nome %>
             </td>
@@ -89,49 +53,13 @@
             </td>
             <td>
                 <%: String.Format("{0:g}", item.DataNascimento) %>
-            </td>
-            <td>
-                <%: item.Peso %>
-            </td>
-            <td>
-                <%: item.Altura %>
-            </td>
-            <td>
-                <%: item.TipoSanguineo %>
-            </td>
-            <td>
-                <%: item.AfiliacaoPai %>
-            </td>
-            <td>
-                <%: item.AfiliacaoMae %>
-            </td>
-            <td>
-                <%: item.EnderecoResidencial %>
-            </td>
-            <td>
-                <%: item.TelefoneResidencial %>
-            </td>
-            <td>
-                <%: item.EnderecoComercial %>
-            </td>
-            <td>
-                <%: item.TelefoneComercial %>
-            </td>
-            <td>
-                <%: item.TelefoneCelular %>
-            </td>
-            <td>
-                <%: item.Convenio %>
-            </td>
+            </td>            
         </tr>
     
     <% } %>
 
     </table>
-
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
+    
 
 </asp:Content>
 

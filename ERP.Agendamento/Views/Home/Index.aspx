@@ -7,6 +7,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewData["Message"] %></h2>
     <p>
-        Ab ab dem.
+        Para iniciar escolha uma das opções do menu no canto superior direito.
     </p>
 </asp:Content>
