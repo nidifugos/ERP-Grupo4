@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using ERP.Agendamento.Dados;
 
 
 namespace Microsoft.ServiceModel.Samples
@@ -34,10 +35,21 @@ namespace Microsoft.ServiceModel.Samples
                 smb.HttpGetEnabled = true;
                 selfHost.Description.Behaviors.Add(smb);
 
+                ServiceDebugBehavior behaviour = selfHost.Description.Behaviors.Find<ServiceDebugBehavior>();
+
+                if (behaviour != null)
+                {
+                    behaviour.IncludeExceptionDetailInFaults = true;
+                }
+                else
+                {
+                    selfHost.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
+                }
+
                 // Step 5 of the hosting procedure: Start (and then stop) the service.
                 selfHost.Open();
-                Console.WriteLine("The service is ready.");
-                Console.WriteLine("Press <ENTER> to terminate service.");
+                Console.WriteLine("Serviço de agendamento e testes rodando.");
+                Console.WriteLine("Pressione <ENTER> para desativar o serviço.");
                 Console.WriteLine();
                 Console.ReadLine();
 
@@ -58,48 +70,68 @@ namespace Microsoft.ServiceModel.Samples
     public interface IProvedorServiços
     {
         [OperationContract]
-        double Add(double n1, double n2);
+        PacienteSet Agendamento_Paciente(int id);
         [OperationContract]
-        double Subtract(double n1, double n2);
+        List<string> RH_MedicoEspecialidade(int cod_especialidade);
         [OperationContract]
-        double Multiply(double n1, double n2);
+        List<string> RH_Especialidade();
         [OperationContract]
-        double Divide(double n1, double n2);
+        List<string> Administracao_PlanoSaude();
+        [OperationContract]
+        int Financeiro_SolicitarPagamento();
     }
 
     public class FornecedorServiços : IProvedorServiços
     {
-        public double Add(double n1, double n2)
+
+        public PacienteSet Agendamento_Paciente(int id)
         {
-            double result = n1 + n2;
-            Console.WriteLine("Received Add({0},{1})", n1, n2);
-            // Code added to write output to the console window.
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            PacienteSet paciente = GerenciadorBanco.GetPacienteById(id);
+            Console.WriteLine("Recebeu Id({0})", id);
+            //informações para debug e log
+            Console.WriteLine("Nome: {0}", paciente.Nome);
+            Console.WriteLine("RG: {0}", paciente.Rg);
+            return paciente;
         }
 
-        public double Subtract(double n1, double n2)
+        public List<string> RH_MedicoEspecialidade(int cod_especialidade)
         {
-            double result = n1 - n2;
-            Console.WriteLine("Received Subtract({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            List<string> medicos = new List<string>();
+            medicos.Add("Kleber");
+            medicos.Add("Gusmão");
+            medicos.Add("Roberval");
+            medicos.Add("Camila");
+            medicos.Add("Alice");
+            Console.WriteLine("Enviando lista de médicos.");
+            return medicos;
         }
 
-        public double Multiply(double n1, double n2)
+        public List<string> RH_Especialidade()
         {
-            double result = n1 * n2;
-            Console.WriteLine("Received Multiply({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            List<string> especialidades = new List<string>();
+            especialidades.Add("Odontologia");
+            especialidades.Add("Oncologia");
+            especialidades.Add("Otorrino");
+            especialidades.Add("Pediatria");
+            especialidades.Add("Obstetria");
+            Console.WriteLine("Enviando lista de especialidades.");
+            return especialidades;
         }
 
-        public double Divide(double n1, double n2)
+        public List<string> Administracao_PlanoSaude()
         {
-            double result = n1 / n2;
-            Console.WriteLine("Received Divide({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            List<string> planos = new List<string>();
+            planos.Add("Amil");
+            planos.Add("Golden Cross");
+            planos.Add("Medial");
+            Console.WriteLine("Enviando lista de planos de saúde.");
+            return planos;
+        }
+
+        public int Financeiro_SolicitarPagamento()
+        {
+            Console.WriteLine("Enviando resposta da solicitação de pagamento.");
+            return 42;
         }
 
     }
