@@ -3,3 +3,8 @@ G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.pdb
 G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
 G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.dll
 G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.dll
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.dll
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.pdb

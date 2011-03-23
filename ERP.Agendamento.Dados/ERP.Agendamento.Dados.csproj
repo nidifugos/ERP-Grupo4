@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57BD8C0B-C0A2-4E8D-924B-C3FAD5B3072D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ERP.Agendamento.Dados</RootNamespace>
     <AssemblyName>ERP.Agendamento.Dados</AssemblyName>
@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BancoTest.cs" />
     <Compile Include="GerenciadorBanco.cs" />
+    <Compile Include="GerenciadorRelatórios.cs" />
     <Compile Include="Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

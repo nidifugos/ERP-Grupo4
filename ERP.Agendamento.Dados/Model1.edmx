@@ -23,6 +23,7 @@
           <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Paciente_Id" Type="int" Nullable="false" />
           <Property Name="Medico_Id" Type="int" Nullable="false" />
+          <Property Name="Especialidade" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PacienteSet">
           <Key>
@@ -63,7 +64,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="erp_agendamentoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="erp_agendamentoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="erp_agendamentoEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AgendamentoSets" EntityType="erp_agendamentoModel.AgendamentoSet" />
           <EntitySet Name="PacienteSets" EntityType="erp_agendamentoModel.PacienteSet" />
           <AssociationSet Name="FK_PacienteAgendamento" Association="erp_agendamentoModel.FK_PacienteAgendamento">
@@ -81,6 +82,7 @@
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Paciente_Id" Type="Int32" Nullable="false" />
           <Property Name="Medico_Id" Type="Int32" Nullable="false" />
+          <Property Name="Especialidade" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="PacienteSet" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="AgendamentoSet" ToRole="PacienteSet" />
         </EntityType>
         <EntityType Name="PacienteSet">
@@ -123,7 +125,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="erp_agendamentoModelStoreContainer" CdmEntityContainer="erp_agendamentoEntities">
+        <EntityContainerMapping StorageEntityContainer="erp_agendamentoModelStoreContainer" CdmEntityContainer="erp_agendamentoEntities1">
           <EntitySetMapping Name="AgendamentoSets"><EntityTypeMapping TypeName="erp_agendamentoModel.AgendamentoSet"><MappingFragment StoreEntitySet="AgendamentoSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Datahora" ColumnName="Datahora" />
@@ -131,6 +133,7 @@
             <ScalarProperty Name="Estado" ColumnName="Estado" />
             <ScalarProperty Name="Paciente_Id" ColumnName="Paciente_Id" />
             <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
+            <ScalarProperty Name="Especialidade" ColumnName="Especialidade" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="PacienteSets"><EntityTypeMapping TypeName="erp_agendamentoModel.PacienteSet"><MappingFragment StoreEntitySet="PacienteSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
@@ -171,12 +174,12 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
-        <EntityTypeShape EntityType="erp_agendamentoModel.AgendamentoSet" Width="1.5" PointX="3" PointY="2.125" Height="2.3648893229166674" IsExpanded="true" />
+      <Diagram Name="Model1" ZoomLevel="95">
+        <EntityTypeShape EntityType="erp_agendamentoModel.AgendamentoSet" Width="1.5" PointX="3" PointY="2" Height="2.5571907552083335" IsExpanded="true" />
         <EntityTypeShape EntityType="erp_agendamentoModel.PacienteSet" Width="1.5" PointX="0.75" PointY="1" Height="4.480205078125" IsExpanded="true" />
         <AssociationConnector Association="erp_agendamentoModel.FK_PacienteAgendamento" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.3074446614583337" />
-          <ConnectorPoint PointX="3" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="2.25" PointY="3.2785953776041667" />
+          <ConnectorPoint PointX="3" PointY="3.2785953776041667" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

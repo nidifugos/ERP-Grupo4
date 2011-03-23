@@ -29,32 +29,32 @@ namespace ERP.Agendamento.Dados
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class erp_agendamentoEntities : ObjectContext
+    public partial class erp_agendamentoEntities1 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new erp_agendamentoEntities object using the connection string found in the 'erp_agendamentoEntities' section of the application configuration file.
+        /// Initializes a new erp_agendamentoEntities1 object using the connection string found in the 'erp_agendamentoEntities1' section of the application configuration file.
         /// </summary>
-        public erp_agendamentoEntities() : base("name=erp_agendamentoEntities", "erp_agendamentoEntities")
+        public erp_agendamentoEntities1() : base("name=erp_agendamentoEntities1", "erp_agendamentoEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities object.
+        /// Initialize a new erp_agendamentoEntities1 object.
         /// </summary>
-        public erp_agendamentoEntities(string connectionString) : base(connectionString, "erp_agendamentoEntities")
+        public erp_agendamentoEntities1(string connectionString) : base(connectionString, "erp_agendamentoEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities object.
+        /// Initialize a new erp_agendamentoEntities1 object.
         /// </summary>
-        public erp_agendamentoEntities(EntityConnection connection) : base(connection, "erp_agendamentoEntities")
+        public erp_agendamentoEntities1(EntityConnection connection) : base(connection, "erp_agendamentoEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -309,6 +309,30 @@ namespace ERP.Agendamento.Dados
         private global::System.Int32 _Medico_Id;
         partial void OnMedico_IdChanging(global::System.Int32 value);
         partial void OnMedico_IdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Especialidade
+        {
+            get
+            {
+                return _Especialidade;
+            }
+            set
+            {
+                OnEspecialidadeChanging(value);
+                ReportPropertyChanging("Especialidade");
+                _Especialidade = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Especialidade");
+                OnEspecialidadeChanged();
+            }
+        }
+        private global::System.String _Especialidade;
+        partial void OnEspecialidadeChanging(global::System.String value);
+        partial void OnEspecialidadeChanged();
 
         #endregion
     
