@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgendamentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Global.asax.cs">
@@ -84,6 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Agendamento\Create.aspx" />
+    <Content Include="Views\Agendamento\Delete.aspx" />
+    <Content Include="Views\Agendamento\Details.aspx" />
+    <Content Include="Views\Agendamento\Edit.aspx" />
+    <Content Include="Views\Agendamento\Index.aspx" />
     <Content Include="Views\Paciente\Create.aspx" />
     <Content Include="Views\Paciente\Delete.aspx" />
     <Content Include="Views\Paciente\Details.aspx" />

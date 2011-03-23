@@ -7,22 +7,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Detalhes</h2>        
-    <b>Nome</b>: <%: Model.Nome %><br />
-    <b>Rg</b>: <%: Model.Rg %><br />
-    <b>Cpf</b>: <%: Model.Cpf %><br />
-    <b>Sexo</b>: <%: Model.Sexo %><br />
-    <b>Data de nascimento</b>: <%: String.Format("{0:g}", Model.DataNascimento) %><br />
-    <b>Peso</b>: <%: Model.Peso %><br />
-    <b>Altura</b>: <%: Model.Altura %><br />
-    <b>Tipo sanguíneo</b>: <%: Model.TipoSanguineo %><br />
-    <b>Pai</b>: <%: Model.AfiliacaoPai %><br />
-    <b>Mãe</b>: <%: Model.AfiliacaoMae %><br />
-    <b>Endereço residencial</b>: <%: Model.EnderecoResidencial %><br />
-    <b>Telefone residencial</b>: <%: Model.TelefoneResidencial %><br />                
-    <b>Endereço comercial</b>: <%: Model.EnderecoComercial %><br />
-    <b>Telefone comercial</b>: <%: Model.TelefoneComercial %><br />
-    <b>Telefone celular</b>: <%: Model.TelefoneCelular %><br />
-    <b>Convênio</b>: <%: Model.Convenio%><br />                             
+    <b>Nome</b>: <%: Model.Nome %><br /><br />
+    <b>Rg</b>: <%: Model.Rg %><br /><br />
+    <b>Cpf</b>: <%: Model.Cpf %><br /><br />
+    <b>Sexo</b>: <%: Model.Sexo %><br /><br />
+    <b>Data de nascimento</b>: <%: String.Format("{0:g}", Model.DataNascimento) %><br /><br />
+    <b>Peso</b>: <%: Model.Peso %><br /><br />
+    <b>Altura</b>: <%: Model.Altura %><br /><br />
+    <b>Tipo sanguíneo</b>: <%: Model.TipoSanguineo %><br /><br />
+    <b>Pai</b>: <%: Model.AfiliacaoPai %><br /><br />
+    <b>Mãe</b>: <%: Model.AfiliacaoMae %><br /><br />
+    <b>Endereço residencial</b>: <%: Model.EnderecoResidencial %><br /><br />
+    <b>Telefone residencial</b>: <%: Model.TelefoneResidencial %><br /><br />
+    <b>Endereço comercial</b>: <%: Model.EnderecoComercial %><br /><br />
+    <b>Telefone comercial</b>: <%: Model.TelefoneComercial %><br /><br />
+    <b>Telefone celular</b>: <%: Model.TelefoneCelular %><br /><br />
+    <b>Convênio</b>: <%: Model.Convenio%><br /><br />       
     <p>
         <%: Html.ActionLink("Editar", "Edit", new { id=Model.Id }) %> |
         <%: Html.ActionLink("Remover", "Delete", new { id=Model.Id })%>

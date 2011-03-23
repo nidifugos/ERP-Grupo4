@@ -8,11 +8,12 @@
 
     <h2>Remover paciente</h2>
     <h3>Tem certeza que deseja remover este paciente?</h3>
-    <b>Nome</b>: <%: Model.Nome %><br />
-    <b>Rg</b>: <%: Model.Rg %><br />
-    <b>Cpf</b>: <%: Model.Cpf %><br />
-    <b>Sexo</b>: <%: Model.Sexo %><br />
-    <b>Data de nascimento</b>: <%: String.Format("{0:g}", Model.DataNascimento) %><br />    
+    <b>Nome</b>: <%: Model.Nome %><br /><br />
+    <b>Rg</b>: <%: Model.Rg %><br /><br />
+    <b>Cpf</b>: <%: Model.Cpf %><br /><br />
+    <b>Sexo</b>: <%: Model.Sexo %><br /><br />
+    <b>Data de nascimento</b>: <%: String.Format("{0:g}", Model.DataNascimento) %><br /><br />
+
     <% using (Html.BeginForm()) { %>
         <p>
 		    <input type="submit" value="Remover" /> |
