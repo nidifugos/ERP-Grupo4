@@ -24,6 +24,9 @@
                 Paciente
             </th>
             <th>
+                Especialidade
+            </th>
+            <th>
                 Medico
             </th>
         </tr>
@@ -47,6 +50,9 @@
             </td>
             <td>
                 <%: item.Paciente_Id %>
+            </td>
+            <td>
+                <%: item.Especialidade %>
             </td>
             <td>
                 <%: item.Medico_Id %>

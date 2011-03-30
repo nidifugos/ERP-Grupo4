@@ -27,6 +27,10 @@
             <%: Html.TextBoxFor(model => model.Paciente_Id) %>
             <%: Html.ValidationMessageFor(model => model.Paciente_Id) %><br /><br />            
             
+            <b>Especialidade</b>:
+            <%: Html.DropDownListFor(model => model.Especialidade, ViewData["Especialidade"] as SelectList) %>
+            <%: Html.ValidationMessageFor(model => model.Especialidade) %><br /><br />        
+
             <b>Médico</b>:
             <%: Html.TextBoxFor(model => model.Medico_Id) %>
             <%: Html.ValidationMessageFor(model => model.Medico_Id) %><br /><br />        

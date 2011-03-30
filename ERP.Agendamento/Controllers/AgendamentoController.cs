@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Microsoft.ServiceModel.Samples;
+
 namespace ERP.Agendamento.Controllers
 {
     public class AgendamentoController : Controller
@@ -32,6 +34,18 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Create()
         {
+            // Especialidades
+            FornecedorServiços fs = new FornecedorServiços();
+            List<String> listaEspecialidades = fs.RH_Especialidade();
+            List<SelectListItem> especialidades = new List<SelectListItem>();
+            foreach (String espec in listaEspecialidades)
+            {
+                especialidades.Add(new SelectListItem
+                {
+                    Text = espec,
+                });
+            }
+            ViewData["Especialidade"] = especialidades;
             return View();
         } 
 
@@ -47,15 +61,12 @@ namespace ERP.Agendamento.Controllers
                 {                    
                     return View();
                 }                
-                entities.AddToAgendamentoSets(pAgendamento);
-                Response.Write("<script>alert('Entity added')</script>");
-                entities.SaveChanges();
-                Response.Write("<script>alert('Changes saved!')</script>");
+                entities.AddToAgendamentoSets(pAgendamento);                
+                entities.SaveChanges();                
                 return RedirectToAction("Index");
             }
-            catch (Exception e)
-            {
-                Response.Write(String.Format("<script>alert('{0}')</script>", e.StackTrace));
+            catch
+            {                
                 return View();
             }
         }
@@ -66,6 +77,18 @@ namespace ERP.Agendamento.Controllers
         public ActionResult Edit(int id)
         {
             var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
+            // Especialidades
+            FornecedorServiços fs = new FornecedorServiços();
+            List<String> listaEspecialidades = fs.RH_Especialidade();
+            List<SelectListItem> especialidades = new List<SelectListItem>();
+            foreach (String espec in listaEspecialidades)
+            {
+                especialidades.Add(new SelectListItem
+                {
+                    Text = espec,
+                });
+            }
+            ViewData["Especialidade"] = especialidades;
             return View(agendamento);
         }
 

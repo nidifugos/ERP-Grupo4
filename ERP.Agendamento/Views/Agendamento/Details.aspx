@@ -11,6 +11,7 @@
     <b>Descrição</b>: <%: Model.Descricao %><br /><br />
     <b>Estado</b>: <%: Model.Estado %><br /><br />
     <b>Paciente</b>: <%: Model.Paciente_Id %><br /><br />
+    <b>Especialidade</b>: <%: Model.Especialidade %><br /><br />
     <b>Médico</b>: <%: Model.Medico_Id %><br /><br />
     <p>
         <%: Html.ActionLink("Editar", "Edit", new { id=Model.Id }) %> |
