@@ -8,14 +8,14 @@ namespace ERP.Agendamento.Controllers
 {
     public class AgendamentoController : Controller
     {
-        Models.erpEntities entities = new Models.erpEntities(); 
+        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities(); 
 
         //
         // GET: /Agendamento/
 
         public ActionResult Index()
         {
-            return View(entities.AgendamentoSet.ToList());
+            return View(entities.AgendamentoSets.ToList());
         }
 
         //
@@ -23,7 +23,7 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
-            var agendamento = (from ag in entities.AgendamentoSet where ag.Id == id select ag).First();
+            var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
             return View(agendamento);
         }
 
@@ -47,7 +47,7 @@ namespace ERP.Agendamento.Controllers
                 {                    
                     return View();
                 }                
-                entities.AddToAgendamentoSet(pAgendamento);
+                entities.AddToAgendamentoSets(pAgendamento);
                 Response.Write("<script>alert('Entity added')</script>");
                 entities.SaveChanges();
                 Response.Write("<script>alert('Changes saved!')</script>");
@@ -65,7 +65,7 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Edit(int id)
         {
-            var agendamento = (from ag in entities.AgendamentoSet where ag.Id == id select ag).First();
+            var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
             return View(agendamento);
         }
 
@@ -77,7 +77,7 @@ namespace ERP.Agendamento.Controllers
         {
             try
             {
-                var original = (from ag in entities.AgendamentoSet where ag.Id == agendamento.Id select ag).First();
+                var original = (from ag in entities.AgendamentoSets where ag.Id == agendamento.Id select ag).First();
                 if (!ModelState.IsValid)
                     return View();
                 entities.ApplyCurrentValues(original.EntityKey.EntitySetName, agendamento);
@@ -95,7 +95,7 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Delete(int id)
         {
-            var agendamento = (from ag in entities.AgendamentoSet where ag.Id == id select ag).First();
+            var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
             return View(agendamento);
         }
 
@@ -107,7 +107,7 @@ namespace ERP.Agendamento.Controllers
         {
             try
             {
-                var agendamento = (from ag in entities.AgendamentoSet where ag.Id == pAgendamento.Id select ag).First();
+                var agendamento = (from ag in entities.AgendamentoSets where ag.Id == pAgendamento.Id select ag).First();
                 entities.DeleteObject(agendamento);
                 entities.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,5 +117,6 @@ namespace ERP.Agendamento.Controllers
                 return View();
             }
         }
+
     }
 }

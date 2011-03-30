@@ -25,6 +25,7 @@
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("Pacientes", "Index", "Paciente")%></li>
                     <li><%: Html.ActionLink("Agendamentos", "Index", "Agendamento")%></li>
+                    <li><%: Html.ActionLink("Agenda Médica", "Index", "Agenda") %></li>
                     <li><%: Html.ActionLink("Sobre", "About", "Home")%></li>
                 </ul>
             

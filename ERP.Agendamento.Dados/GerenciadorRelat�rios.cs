@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ERP.Agendamento.Dados
 {
-    class GerenciadorRelatórios
+    public class GerenciadorRelatórios
     {
 
         //Agenda médica falta mudar item do dictionary para list

@@ -18,7 +18,7 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("erpModel", "FK_PacienteAgendamento", "PacienteSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Agendamento.Models.PacienteSet), "AgendamentoSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP.Agendamento.Models.AgendamentoSet), true)]
+[assembly: EdmRelationshipAttribute("erp_agendamentoModel", "FK_PacienteAgendamento", "PacienteSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Agendamento.Models.PacienteSet), "AgendamentoSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP.Agendamento.Models.AgendamentoSet), true)]
 
 #endregion
 
@@ -29,32 +29,32 @@ namespace ERP.Agendamento.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class erpEntities : ObjectContext
+    public partial class erp_agendamentoEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new erpEntities object using the connection string found in the 'erpEntities' section of the application configuration file.
+        /// Initializes a new erp_agendamentoEntities object using the connection string found in the 'erp_agendamentoEntities' section of the application configuration file.
         /// </summary>
-        public erpEntities() : base("name=erpEntities", "erpEntities")
+        public erp_agendamentoEntities() : base("name=erp_agendamentoEntities", "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erpEntities object.
+        /// Initialize a new erp_agendamentoEntities object.
         /// </summary>
-        public erpEntities(string connectionString) : base(connectionString, "erpEntities")
+        public erp_agendamentoEntities(string connectionString) : base(connectionString, "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erpEntities object.
+        /// Initialize a new erp_agendamentoEntities object.
         /// </summary>
-        public erpEntities(EntityConnection connection) : base(connection, "erpEntities")
+        public erp_agendamentoEntities(EntityConnection connection) : base(connection, "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -73,52 +73,52 @@ namespace ERP.Agendamento.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<AgendamentoSet> AgendamentoSet
+        public ObjectSet<AgendamentoSet> AgendamentoSets
         {
             get
             {
-                if ((_AgendamentoSet == null))
+                if ((_AgendamentoSets == null))
                 {
-                    _AgendamentoSet = base.CreateObjectSet<AgendamentoSet>("AgendamentoSet");
+                    _AgendamentoSets = base.CreateObjectSet<AgendamentoSet>("AgendamentoSets");
                 }
-                return _AgendamentoSet;
+                return _AgendamentoSets;
             }
         }
-        private ObjectSet<AgendamentoSet> _AgendamentoSet;
+        private ObjectSet<AgendamentoSet> _AgendamentoSets;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PacienteSet> PacienteSet
+        public ObjectSet<PacienteSet> PacienteSets
         {
             get
             {
-                if ((_PacienteSet == null))
+                if ((_PacienteSets == null))
                 {
-                    _PacienteSet = base.CreateObjectSet<PacienteSet>("PacienteSet");
+                    _PacienteSets = base.CreateObjectSet<PacienteSet>("PacienteSets");
                 }
-                return _PacienteSet;
+                return _PacienteSets;
             }
         }
-        private ObjectSet<PacienteSet> _PacienteSet;
+        private ObjectSet<PacienteSet> _PacienteSets;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the AgendamentoSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the AgendamentoSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToAgendamentoSet(AgendamentoSet agendamentoSet)
+        public void AddToAgendamentoSets(AgendamentoSet agendamentoSet)
         {
-            base.AddObject("AgendamentoSet", agendamentoSet);
+            base.AddObject("AgendamentoSets", agendamentoSet);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PacienteSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PacienteSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPacienteSet(PacienteSet pacienteSet)
+        public void AddToPacienteSets(PacienteSet pacienteSet)
         {
-            base.AddObject("PacienteSet", pacienteSet);
+            base.AddObject("PacienteSets", pacienteSet);
         }
 
         #endregion
@@ -132,7 +132,7 @@ namespace ERP.Agendamento.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="erpModel", Name="AgendamentoSet")]
+    [EdmEntityTypeAttribute(NamespaceName="erp_agendamentoModel", Name="AgendamentoSet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class AgendamentoSet : EntityObject
@@ -309,6 +309,30 @@ namespace ERP.Agendamento.Models
         private global::System.Int32 _Medico_Id;
         partial void OnMedico_IdChanging(global::System.Int32 value);
         partial void OnMedico_IdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Especialidade
+        {
+            get
+            {
+                return _Especialidade;
+            }
+            set
+            {
+                OnEspecialidadeChanging(value);
+                ReportPropertyChanging("Especialidade");
+                _Especialidade = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Especialidade");
+                OnEspecialidadeChanged();
+            }
+        }
+        private global::System.String _Especialidade;
+        partial void OnEspecialidadeChanging(global::System.String value);
+        partial void OnEspecialidadeChanged();
 
         #endregion
     
@@ -320,16 +344,16 @@ namespace ERP.Agendamento.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("erpModel", "FK_PacienteAgendamento", "PacienteSet")]
+        [EdmRelationshipNavigationPropertyAttribute("erp_agendamentoModel", "FK_PacienteAgendamento", "PacienteSet")]
         public PacienteSet PacienteSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erpModel.FK_PacienteAgendamento", "PacienteSet").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erp_agendamentoModel.FK_PacienteAgendamento", "PacienteSet").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erpModel.FK_PacienteAgendamento", "PacienteSet").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erp_agendamentoModel.FK_PacienteAgendamento", "PacienteSet").Value = value;
             }
         }
         /// <summary>
@@ -341,13 +365,13 @@ namespace ERP.Agendamento.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erpModel.FK_PacienteAgendamento", "PacienteSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PacienteSet>("erp_agendamentoModel.FK_PacienteAgendamento", "PacienteSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PacienteSet>("erpModel.FK_PacienteAgendamento", "PacienteSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PacienteSet>("erp_agendamentoModel.FK_PacienteAgendamento", "PacienteSet", value);
                 }
             }
         }
@@ -358,7 +382,7 @@ namespace ERP.Agendamento.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="erpModel", Name="PacienteSet")]
+    [EdmEntityTypeAttribute(NamespaceName="erp_agendamentoModel", Name="PacienteSet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PacienteSet : EntityObject
@@ -820,18 +844,18 @@ namespace ERP.Agendamento.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("erpModel", "FK_PacienteAgendamento", "AgendamentoSet")]
-        public EntityCollection<AgendamentoSet> AgendamentoSet
+        [EdmRelationshipNavigationPropertyAttribute("erp_agendamentoModel", "FK_PacienteAgendamento", "AgendamentoSet")]
+        public EntityCollection<AgendamentoSet> AgendamentoSets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AgendamentoSet>("erpModel.FK_PacienteAgendamento", "AgendamentoSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<AgendamentoSet>("erp_agendamentoModel.FK_PacienteAgendamento", "AgendamentoSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AgendamentoSet>("erpModel.FK_PacienteAgendamento", "AgendamentoSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<AgendamentoSet>("erp_agendamentoModel.FK_PacienteAgendamento", "AgendamentoSet", value);
                 }
             }
         }

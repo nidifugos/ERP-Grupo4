@@ -1,9 +1,3 @@
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.pdb
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ResolveAssemblyReference.cache
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.pdb
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.dll.config
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.dll
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.dll
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.pdb

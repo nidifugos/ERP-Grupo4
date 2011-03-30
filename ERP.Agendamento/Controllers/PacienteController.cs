@@ -8,14 +8,14 @@ namespace ERP.Agendamento.Controllers
 {
     public class PacienteController : Controller
     {
-        Models.erpEntities entities = new Models.erpEntities(); 
+        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities(); 
 
         //
         // GET: /Paciente/
 
         public ActionResult Index()
         {
-            return View(entities.PacienteSet.ToList());
+            return View(entities.PacienteSets.ToList());
         }
 
         //
@@ -23,7 +23,7 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
-            var paciente = (from pac in entities.PacienteSet where pac.Id == id select pac).First();
+            var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
 
@@ -47,7 +47,7 @@ namespace ERP.Agendamento.Controllers
                 {
                     return View();
                 }
-                entities.AddToPacienteSet(pPaciente);
+                entities.AddToPacienteSets(pPaciente);
                 entities.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +62,7 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Edit(int id)
         {
-            var paciente = (from pac in entities.PacienteSet where pac.Id == id select pac).First();
+            var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
 
@@ -74,7 +74,7 @@ namespace ERP.Agendamento.Controllers
         {
             try
             {
-                var original = (from pac in entities.PacienteSet where pac.Id == paciente.Id select pac).First();
+                var original = (from pac in entities.PacienteSets where pac.Id == paciente.Id select pac).First();
                 if (!ModelState.IsValid)
                     return View();
                 entities.ApplyCurrentValues(original.EntityKey.EntitySetName, paciente);
@@ -92,7 +92,7 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Delete(int id)
         {
-            var paciente = (from pac in entities.PacienteSet where pac.Id == id select pac).First();
+            var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
 
@@ -104,7 +104,7 @@ namespace ERP.Agendamento.Controllers
         {
             try
             {
-                var paciente = (from pac in entities.PacienteSet where pac.Id == pPaciente.Id select pac).First();
+                var paciente = (from pac in entities.PacienteSets where pac.Id == pPaciente.Id select pac).First();
                 entities.DeleteObject(paciente);
                 entities.SaveChanges();
                 return RedirectToAction("Index");
