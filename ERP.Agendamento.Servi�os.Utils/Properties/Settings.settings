@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ERP.Agendamento.Serviços.Utils.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ERP_Agendamento_Serviços_Utils_RH_Servicos_RH_Servico" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ls01:3001/rh_servico.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

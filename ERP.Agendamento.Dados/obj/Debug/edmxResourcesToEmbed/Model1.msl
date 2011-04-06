@@ -4,6 +4,8 @@
     <EntitySetMapping Name="AgendamentoSets">
       <EntityTypeMapping TypeName="erp_agendamentoModel.AgendamentoSet">
         <MappingFragment StoreEntitySet="AgendamentoSet">
+          <ScalarProperty Name="Sala_Id" ColumnName="Sala_Id" />
+          <ScalarProperty Name="Medico_Nome" ColumnName="Medico_Nome" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Datahora" ColumnName="Datahora" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />

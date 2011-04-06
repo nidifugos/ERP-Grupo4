@@ -1,9 +1,1 @@
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.dll
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.pdb
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Dados.exe
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Service.exe
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Dados.pdb
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Service.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.dll
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.pdb

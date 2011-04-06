@@ -17,8 +17,10 @@
     <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Paciente_Id" Type="int" Nullable="false" />
-    <Property Name="Medico_Id" Type="int" Nullable="false" />
+    <Property Name="Medico_Id" Type="int" />
+    <Property Name="Medico_Nome" Type="nvarchar(max)" />
     <Property Name="Especialidade" Type="nvarchar(max)" />
+    <Property Name="Sala_Id" Type="int" />
   </EntityType>
   <EntityType Name="PacienteSet">
     <Key>

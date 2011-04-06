@@ -20,6 +20,8 @@
     <Property Name="Medico_Id" Type="Int32" Nullable="false" />
     <Property Name="Especialidade" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="PacienteSet" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="AgendamentoSet" ToRole="PacienteSet" />
+    <Property Type="String" Name="Medico_Nome" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Sala_Id" />
   </EntityType>
   <EntityType Name="PacienteSet">
     <Key>
