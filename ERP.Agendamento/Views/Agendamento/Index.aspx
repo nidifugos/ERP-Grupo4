@@ -29,6 +29,9 @@
             <th>
                 Medico
             </th>
+            <th>
+                Sala
+            </th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -55,7 +58,10 @@
                 <%: item.Especialidade %>
             </td>
             <td>
-                <%: item.Medico_Id %>
+                <%: item.Medico_Nome %>
+            </td>
+            <td>
+                <%: item.Sala_Id %>
             </td>
         </tr>
     

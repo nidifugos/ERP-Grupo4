@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Models\EntityDataModel.edmx.sql" />
     <Content Include="Views\Agenda\Details.aspx" />
     <Content Include="Views\Agenda\Index.aspx" />
     <Content Include="Views\Agendamento\Create.aspx" />

@@ -102,6 +102,13 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Delete(Models.PacienteSet pPaciente)
         {
+            var agendamento = (from ag in entities.AgendamentoSets where ag.Paciente_Id == pPaciente.Id select ag).First();
+            if (agendamento != null)
+            {
+                ERP.Agendamento.Controllers.HomeController.ErrorMessage = 
+                    "Existem agendamentos para o paciente; remova-os antes de prosseguir.";
+                return RedirectToAction("Error", "Home");
+            }
             try
             {
                 var paciente = (from pac in entities.PacienteSets where pac.Id == pPaciente.Id select pac).First();
@@ -110,9 +117,11 @@ namespace ERP.Agendamento.Controllers
                 return RedirectToAction("Index");
             }
             catch
-            {
+            {                                
                 return View();
             }
-        }
+        }        
     }
 }
+
+
