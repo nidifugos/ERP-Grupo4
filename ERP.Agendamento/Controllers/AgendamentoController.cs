@@ -46,6 +46,19 @@ namespace ERP.Agendamento.Controllers
                 });
             }
             ViewData["Especialidade"] = especialidades;
+            // Pacientes                       
+            List<Models.PacienteSet> listaPacientes = entities.PacienteSets.ToList();
+            List<SelectListItem> pacientes = new List<SelectListItem>();
+            foreach (Models.PacienteSet pac in listaPacientes)
+            {
+                pacientes.Add(new SelectListItem
+                {
+                    Text = pac.Nome + " [" + pac.Cpf + "]",
+                    Value = Convert.ToString(pac.Id),
+                });
+            }
+            ViewData["Pacientes"] = pacientes;
+            ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             return View();
         } 
 
@@ -54,7 +67,7 @@ namespace ERP.Agendamento.Controllers
 
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "id")]Models.AgendamentoSet pAgendamento)
-        {
+        {            
             try
             {
                 if (!ModelState.IsValid)
@@ -89,6 +102,19 @@ namespace ERP.Agendamento.Controllers
                 });
             }
             ViewData["Especialidade"] = especialidades;
+            // Pacientes                       
+            List<Models.PacienteSet> listaPacientes = entities.PacienteSets.ToList();
+            List<SelectListItem> pacientes = new List<SelectListItem>();
+            foreach (Models.PacienteSet pac in listaPacientes)
+            {
+                pacientes.Add(new SelectListItem
+                {
+                    Text = pac.Nome + " [" + pac.Cpf + "]",
+                    Value = Convert.ToString(pac.Id),
+                });
+            }
+            ViewData["Pacientes"] = pacientes;
+            ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             return View(agendamento);
         }
 
@@ -141,5 +167,12 @@ namespace ERP.Agendamento.Controllers
             }
         }
 
+        public string ShowPaciente()
+        {
+            int id = 15;
+            string nome = (from paciente in entities.PacienteSets.ToList() where paciente.Id == id select paciente).First().Nome;
+            string cpf = (from paciente in entities.PacienteSets.ToList() where paciente.Id == id select paciente).First().Cpf;
+            return nome + " [" + cpf + "]";
+        }
     }
 }

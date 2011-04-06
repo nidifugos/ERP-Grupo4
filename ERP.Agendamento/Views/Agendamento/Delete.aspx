@@ -11,7 +11,7 @@
     <b>Data e hora</b>: <%: Model.Datahora %><br /><br />
     <b>Descrição</b>: <%: Model.Descricao %><br /><br />
     <b>Estado</b>: <%: Model.Estado %><br /><br />  
-    <b>Paciente</b>: <%: Model.Paciente_Id %><br /><br />
+    <b>Paciente [Cpf]</b>: <%: Model.PacienteSet.Nome + " [" + Model.PacienteSet.Cpf + "]"  %><br /><br />   
     <b>Especialidade</b>: <%: Model.Especialidade %><br /><br />
     <b>Médico</b>: <%: Model.Medico_Id %><br /><br />
            

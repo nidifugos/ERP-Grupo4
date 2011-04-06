@@ -24,5 +24,10 @@ namespace ERP.Agendamento.Dados
         {
             return entities.AgendamentoSets.ToList();
         }
+
+        public static List<PacienteSet> GetAllPacientes()
+        {
+            return entities.PacienteSets.ToList();
+        }
     }
 }

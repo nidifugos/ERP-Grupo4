@@ -48,8 +48,8 @@
             <td>
                 <%: item.Estado %>
             </td>
-            <td>
-                <%: item.Paciente_Id %>
+            <td>                                
+                <%: item.PacienteSet.Nome + " [" + item.PacienteSet.Cpf + "]" %>                
             </td>
             <td>
                 <%: item.Especialidade %>

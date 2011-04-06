@@ -23,9 +23,9 @@
             <%: Html.TextBoxFor(model => model.Estado) %>
             <%: Html.ValidationMessageFor(model => model.Estado) %><br /><br />        
             
-            <b>Paciente</b>:                
-            <%: Html.TextBoxFor(model => model.Paciente_Id) %>
-            <%: Html.ValidationMessageFor(model => model.Paciente_Id) %><br /><br />            
+            <b>Paciente [Cpf]</b>:
+            <%: Html.DropDownListFor(model => model.Paciente_Id, ViewData["Paciente_Id"] as SelectList) %>
+            <%: Html.ValidationMessageFor(model => model.Paciente_Id) %><br /><br />                        
             
             <b>Especialidade</b>:
             <%: Html.DropDownListFor(model => model.Especialidade, ViewData["Especialidade"] as SelectList) %>
