@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="erp_agendamentoModelStoreContainer" CdmEntityContainer="erp_agendamentoEntities">
+  <EntityContainerMapping StorageEntityContainer="erp_agendamentoModelStoreContainer" CdmEntityContainer="erp_agendamentoEntities2">
     <EntitySetMapping Name="AgendamentoSets">
       <EntityTypeMapping TypeName="erp_agendamentoModel.AgendamentoSet">
         <MappingFragment StoreEntitySet="AgendamentoSet">
@@ -12,6 +12,16 @@
           <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
           <ScalarProperty Name="Medico_Nome" ColumnName="Medico_Nome" />
           <ScalarProperty Name="Especialidade" ColumnName="Especialidade" />
+          <ScalarProperty Name="Sala_Id" ColumnName="Sala_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManutencaoSets">
+      <EntityTypeMapping TypeName="erp_agendamentoModel.ManutencaoSet">
+        <MappingFragment StoreEntitySet="ManutencaoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data_Inicio" ColumnName="Data_Inicio" />
+          <ScalarProperty Name="Data_Fim" ColumnName="Data_Fim" />
           <ScalarProperty Name="Sala_Id" ColumnName="Sala_Id" />
         </MappingFragment>
       </EntityTypeMapping>

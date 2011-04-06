@@ -2,6 +2,7 @@
 <Schema Namespace="erp_agendamentoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="erp_agendamentoModelStoreContainer">
     <EntitySet Name="AgendamentoSet" EntityType="erp_agendamentoModel.Store.AgendamentoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ManutencaoSet" EntityType="erp_agendamentoModel.Store.ManutencaoSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PacienteSet" EntityType="erp_agendamentoModel.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_PacienteAgendamento" Association="erp_agendamentoModel.Store.FK_PacienteAgendamento">
       <End Role="PacienteSet" EntitySet="PacienteSet" />
@@ -20,6 +21,15 @@
     <Property Name="Medico_Id" Type="int" Nullable="false" />
     <Property Name="Medico_Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Especialidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sala_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ManutencaoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Data_Inicio" Type="datetime" Nullable="false" />
+    <Property Name="Data_Fim" Type="datetime" Nullable="false" />
     <Property Name="Sala_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PacienteSet">

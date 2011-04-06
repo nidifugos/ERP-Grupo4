@@ -7,7 +7,7 @@ namespace ERP.Agendamento.Dados
 {
     public class GerenciadorBanco
     {
-        static erp_agendamentoEntities entities = new erp_agendamentoEntities();
+        static erp_agendamentoEntities2 entities = new erp_agendamentoEntities2();
 
         public static PacienteSet GetPacienteById(int id)
         {
@@ -28,6 +28,25 @@ namespace ERP.Agendamento.Dados
         public static List<PacienteSet> GetAllPacientes()
         {
             return entities.PacienteSets.ToList();
+        }
+
+        public static void AddManutencao(DateTime dataInicio, DateTime dataFim, int salaId)
+        {
+            //criacao de manutencao
+            ManutencaoSet manutencao = new ManutencaoSet();
+            manutencao.Data_Inicio = dataInicio;
+            manutencao.Data_Fim = dataFim;
+            manutencao.Sala_Id = salaId;
+            entities.AddToManutencaoSets(manutencao);
+
+
+            //alterando status dos agendamentos atuais
+            foreach (AgendamentoSet agendamento in (from agendamentos in entities.AgendamentoSets where agendamentos.Datahora >= manutencao.Data_Inicio && agendamentos.Datahora <= manutencao.Data_Fim && agendamentos.Sala_Id == manutencao.Sala_Id select agendamentos).ToList())
+            {
+                agendamento.Estado = "remarcar";
+            }
+
+            entities.SaveChanges();
         }
     }
 }

@@ -29,32 +29,32 @@ namespace ERP.Agendamento.Dados
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class erp_agendamentoEntities : ObjectContext
+    public partial class erp_agendamentoEntities2 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new erp_agendamentoEntities object using the connection string found in the 'erp_agendamentoEntities' section of the application configuration file.
+        /// Initializes a new erp_agendamentoEntities2 object using the connection string found in the 'erp_agendamentoEntities2' section of the application configuration file.
         /// </summary>
-        public erp_agendamentoEntities() : base("name=erp_agendamentoEntities", "erp_agendamentoEntities")
+        public erp_agendamentoEntities2() : base("name=erp_agendamentoEntities2", "erp_agendamentoEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities object.
+        /// Initialize a new erp_agendamentoEntities2 object.
         /// </summary>
-        public erp_agendamentoEntities(string connectionString) : base(connectionString, "erp_agendamentoEntities")
+        public erp_agendamentoEntities2(string connectionString) : base(connectionString, "erp_agendamentoEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities object.
+        /// Initialize a new erp_agendamentoEntities2 object.
         /// </summary>
-        public erp_agendamentoEntities(EntityConnection connection) : base(connection, "erp_agendamentoEntities")
+        public erp_agendamentoEntities2(EntityConnection connection) : base(connection, "erp_agendamentoEntities2")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -89,6 +89,22 @@ namespace ERP.Agendamento.Dados
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<ManutencaoSet> ManutencaoSets
+        {
+            get
+            {
+                if ((_ManutencaoSets == null))
+                {
+                    _ManutencaoSets = base.CreateObjectSet<ManutencaoSet>("ManutencaoSets");
+                }
+                return _ManutencaoSets;
+            }
+        }
+        private ObjectSet<ManutencaoSet> _ManutencaoSets;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<PacienteSet> PacienteSets
         {
             get
@@ -111,6 +127,14 @@ namespace ERP.Agendamento.Dados
         public void AddToAgendamentoSets(AgendamentoSet agendamentoSet)
         {
             base.AddObject("AgendamentoSets", agendamentoSet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ManutencaoSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToManutencaoSets(ManutencaoSet manutencaoSet)
+        {
+            base.AddObject("ManutencaoSets", manutencaoSet);
         }
     
         /// <summary>
@@ -431,6 +455,139 @@ namespace ERP.Agendamento.Dados
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="erp_agendamentoModel", Name="ManutencaoSet")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ManutencaoSet : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ManutencaoSet object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="data_Inicio">Initial value of the Data_Inicio property.</param>
+        /// <param name="data_Fim">Initial value of the Data_Fim property.</param>
+        /// <param name="sala_Id">Initial value of the Sala_Id property.</param>
+        public static ManutencaoSet CreateManutencaoSet(global::System.Int32 id, global::System.DateTime data_Inicio, global::System.DateTime data_Fim, global::System.Int32 sala_Id)
+        {
+            ManutencaoSet manutencaoSet = new ManutencaoSet();
+            manutencaoSet.Id = id;
+            manutencaoSet.Data_Inicio = data_Inicio;
+            manutencaoSet.Data_Fim = data_Fim;
+            manutencaoSet.Sala_Id = sala_Id;
+            return manutencaoSet;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Data_Inicio
+        {
+            get
+            {
+                return _Data_Inicio;
+            }
+            set
+            {
+                OnData_InicioChanging(value);
+                ReportPropertyChanging("Data_Inicio");
+                _Data_Inicio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Data_Inicio");
+                OnData_InicioChanged();
+            }
+        }
+        private global::System.DateTime _Data_Inicio;
+        partial void OnData_InicioChanging(global::System.DateTime value);
+        partial void OnData_InicioChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Data_Fim
+        {
+            get
+            {
+                return _Data_Fim;
+            }
+            set
+            {
+                OnData_FimChanging(value);
+                ReportPropertyChanging("Data_Fim");
+                _Data_Fim = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Data_Fim");
+                OnData_FimChanged();
+            }
+        }
+        private global::System.DateTime _Data_Fim;
+        partial void OnData_FimChanging(global::System.DateTime value);
+        partial void OnData_FimChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sala_Id
+        {
+            get
+            {
+                return _Sala_Id;
+            }
+            set
+            {
+                OnSala_IdChanging(value);
+                ReportPropertyChanging("Sala_Id");
+                _Sala_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Sala_Id");
+                OnSala_IdChanged();
+            }
+        }
+        private global::System.Int32 _Sala_Id;
+        partial void OnSala_IdChanging(global::System.Int32 value);
+        partial void OnSala_IdChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

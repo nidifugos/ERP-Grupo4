@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="erp_agendamentoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="erp_agendamentoEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="erp_agendamentoEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AgendamentoSets" EntityType="erp_agendamentoModel.AgendamentoSet" />
+    <EntitySet Name="ManutencaoSets" EntityType="erp_agendamentoModel.ManutencaoSet" />
     <EntitySet Name="PacienteSets" EntityType="erp_agendamentoModel.PacienteSet" />
     <AssociationSet Name="FK_PacienteAgendamento" Association="erp_agendamentoModel.FK_PacienteAgendamento">
       <End Role="PacienteSet" EntitySet="PacienteSets" />
@@ -22,6 +23,15 @@
     <Property Name="Especialidade" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Sala_Id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="PacienteSet" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="AgendamentoSet" ToRole="PacienteSet" />
+  </EntityType>
+  <EntityType Name="ManutencaoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Data_Inicio" Type="DateTime" Nullable="false" />
+    <Property Name="Data_Fim" Type="DateTime" Nullable="false" />
+    <Property Name="Sala_Id" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="PacienteSet">
     <Key>

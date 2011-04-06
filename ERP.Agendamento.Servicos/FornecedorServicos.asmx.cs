@@ -19,7 +19,7 @@ namespace ERP.Agendamento.Servicos
     {
 
         [WebMethod]
-        public List<Agendamento.Dados.Agendamento> Agendamento_Paciente(int id)
+        public List<Agendamento.Dados.Agendamento> AgendamentosByMedicos(int id)
         {
             List<Agendamento.Dados.Agendamento> listaAgendamentos = new List<Dados.Agendamento>();
             foreach (AgendamentoSet agendamento in GerenciadorBanco.GetAgendamentosByMedico(id))
@@ -30,10 +30,16 @@ namespace ERP.Agendamento.Servicos
         }
 
         [WebMethod]
-        public Agendamento.Dados.Paciente Paciente_ById(int id)
+        public Agendamento.Dados.Paciente PacienteById(int id)
         {
             Agendamento.Dados.Paciente paciente = new Paciente(GerenciadorBanco.GetPacienteById(id));
             return paciente;
+        }
+
+        [WebMethod]
+        public void Manutencao(DateTime dataInicio, DateTime dataFim, int salaId)
+        {
+            GerenciadorBanco.AddManutencao(dataInicio, dataFim, salaId);
         }
     }
 }
