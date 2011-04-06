@@ -82,6 +82,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GerenciadorBanco.cs" />
+    <Compile Include="Models\GerenciadorRelatórios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,10 +141,6 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ERP.Agendamento.Dados\ERP.Agendamento.Dados.csproj">
-      <Project>{57BD8C0B-C0A2-4E8D-924B-C3FAD5B3072D}</Project>
-      <Name>ERP.Agendamento.Dados</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Service\ERP.Agendamento.Serviços.csproj">
       <Project>{A7F069F0-457A-4203-ADD5-3FC42E58BAB7}</Project>
       <Name>ERP.Agendamento.Serviços</Name>

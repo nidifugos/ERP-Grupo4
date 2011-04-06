@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="erp_agendamentoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="erp_agendamentoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AgendamentoSets" EntityType="erp_agendamentoModel.AgendamentoSet" />
+    <EntitySet Name="PacienteSets" EntityType="erp_agendamentoModel.PacienteSet" />
+    <AssociationSet Name="FK_PacienteAgendamento" Association="erp_agendamentoModel.FK_PacienteAgendamento">
+      <End Role="PacienteSet" EntitySet="PacienteSets" />
+      <End Role="AgendamentoSet" EntitySet="AgendamentoSets" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AgendamentoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Datahora" Type="DateTime" Nullable="false" />
+    <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Paciente_Id" Type="Int32" Nullable="false" />
+    <Property Name="Medico_Id" Type="Int32" Nullable="false" />
+    <Property Name="Especialidade" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PacienteSet" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="AgendamentoSet" ToRole="PacienteSet" />
+  </EntityType>
+  <EntityType Name="PacienteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Rg" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Cpf" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Sexo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DataNascimento" Type="DateTime" Nullable="false" />
+    <Property Name="Peso" Type="Int32" Nullable="false" />
+    <Property Name="Altura" Type="Int32" Nullable="false" />
+    <Property Name="TipoSanguineo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="AfiliacaoPai" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="AfiliacaoMae" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnderecoResidencial" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TelefoneResidencial" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EnderecoComercial" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TelefoneComercial" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TelefoneCelular" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Convenio" Type="Int32" />
+    <NavigationProperty Name="AgendamentoSets" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="PacienteSet" ToRole="AgendamentoSet" />
+  </EntityType>
+  <Association Name="FK_PacienteAgendamento">
+    <End Role="PacienteSet" Type="erp_agendamentoModel.PacienteSet" Multiplicity="1" />
+    <End Role="AgendamentoSet" Type="erp_agendamentoModel.AgendamentoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PacienteSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AgendamentoSet">
+        <PropertyRef Name="Paciente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

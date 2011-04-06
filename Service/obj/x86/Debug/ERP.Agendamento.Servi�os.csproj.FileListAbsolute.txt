@@ -1,8 +1,8 @@
 C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\Service.exe.config
 C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\Service.exe
 C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\Service.pdb
+C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\ERP.Agendamento.Dados.exe
 C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\ERP.Agendamento.Dados.pdb
 C:\Users\5945841\ERP-Grupo4\Service\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\5945841\ERP-Grupo4\Service\obj\x86\Debug\Service.exe
 C:\Users\5945841\ERP-Grupo4\Service\obj\x86\Debug\Service.pdb
-C:\Users\5945841\ERP-Grupo4\Service\bin\Debug\ERP.Agendamento.Dados.exe

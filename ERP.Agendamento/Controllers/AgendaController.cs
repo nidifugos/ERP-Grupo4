@@ -24,8 +24,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
-             ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica(id, 6);
-             ViewData["Agendamentos"] = agenda.Agenda;
+             ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica(id, 6);
+             ViewData["Agendamentos"] = agenda.Agenda.ToList();
             return View();
         }
     }
