@@ -10,7 +10,7 @@ namespace ERP.Agendamento.Servicos
     /// <summary>
     /// Summary description for Service1
     /// </summary>
-    [WebService(Namespace = "http://localhost:8080/")]
+    [WebService(Namespace = "http://localhost:3004/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -27,6 +27,13 @@ namespace ERP.Agendamento.Servicos
                 listaAgendamentos.Add(new Dados.Agendamento(agendamento.Medico_Id, agendamento.Medico_Nome , agendamento.Paciente_Id, agendamento.PacienteSet.Nome, agendamento.Datahora));
             }
             return listaAgendamentos;
+        }
+
+        [WebMethod]
+        public Agendamento.Dados.Paciente Paciente_ById(int id)
+        {
+            Agendamento.Dados.Paciente paciente = new Paciente(GerenciadorBanco.GetPacienteById(id));
+            return paciente;
         }
     }
 }

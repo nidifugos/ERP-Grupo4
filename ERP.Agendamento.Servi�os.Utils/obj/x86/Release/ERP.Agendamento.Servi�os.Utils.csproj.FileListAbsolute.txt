@@ -1,0 +1,8 @@
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\bin\Release\ERP.Agendamento.Serviços.Utils.exe.config
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\bin\Release\ERP.Agendamento.Serviços.Utils.exe
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\bin\Release\ERP.Agendamento.Serviços.Utils.XmlSerializers.dll
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\bin\Release\ERP.Agendamento.Serviços.Utils.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\obj\x86\Release\ERP.Agendamento.Serviços.Utils.exe
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\obj\x86\Release\ERP.Agendamento.Serviços.Utils.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Serviços.Utils\obj\x86\Release\ERP.Agendamento.Serviços.Utils.XmlSerializers.dll

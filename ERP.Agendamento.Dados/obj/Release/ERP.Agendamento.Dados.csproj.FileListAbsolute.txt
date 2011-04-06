@@ -1,0 +1,6 @@
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\bin\Release\ERP.Agendamento.Dados.exe.config
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\bin\Release\ERP.Agendamento.Dados.exe
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\bin\Release\ERP.Agendamento.Dados.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Release\ResolveAssemblyReference.cache
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Release\ERP.Agendamento.Dados.exe
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Release\ERP.Agendamento.Dados.pdb
