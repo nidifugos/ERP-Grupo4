@@ -29,32 +29,32 @@ namespace ERP.Agendamento.Dados
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class erp_agendamentoEntities2 : ObjectContext
+    public partial class erp_agendamentoEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new erp_agendamentoEntities2 object using the connection string found in the 'erp_agendamentoEntities2' section of the application configuration file.
+        /// Initializes a new erp_agendamentoEntities object using the connection string found in the 'erp_agendamentoEntities' section of the application configuration file.
         /// </summary>
-        public erp_agendamentoEntities2() : base("name=erp_agendamentoEntities2", "erp_agendamentoEntities2")
+        public erp_agendamentoEntities() : base("name=erp_agendamentoEntities", "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities2 object.
+        /// Initialize a new erp_agendamentoEntities object.
         /// </summary>
-        public erp_agendamentoEntities2(string connectionString) : base(connectionString, "erp_agendamentoEntities2")
+        public erp_agendamentoEntities(string connectionString) : base(connectionString, "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new erp_agendamentoEntities2 object.
+        /// Initialize a new erp_agendamentoEntities object.
         /// </summary>
-        public erp_agendamentoEntities2(EntityConnection connection) : base(connection, "erp_agendamentoEntities2")
+        public erp_agendamentoEntities(EntityConnection connection) : base(connection, "erp_agendamentoEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

@@ -7,7 +7,7 @@ namespace ERP.Agendamento.Dados
 {
     public class GerenciadorBanco
     {
-        static erp_agendamentoEntities2 entities = new erp_agendamentoEntities2();
+        static erp_agendamentoEntities entities = new erp_agendamentoEntities();
 
         public static PacienteSet GetPacienteById(int id)
         {

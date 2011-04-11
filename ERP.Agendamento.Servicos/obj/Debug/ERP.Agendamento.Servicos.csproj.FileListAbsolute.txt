@@ -1,0 +1,7 @@
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\bin\ERP.Agendamento.Servicos.dll
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\bin\ERP.Agendamento.Servicos.pdb
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\bin\ERP.Agendamento.Dados.exe
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\bin\ERP.Agendamento.Dados.pdb
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\obj\Debug\ResolveAssemblyReference.cache
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\obj\Debug\ERP.Agendamento.Servicos.dll
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Servicos\obj\Debug\ERP.Agendamento.Servicos.pdb

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using Microsoft.ServiceModel.Samples;
-
 namespace ERP.Agendamento.Controllers
 {
     public class AgendamentoController : Controller

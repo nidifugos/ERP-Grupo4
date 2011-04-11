@@ -1,0 +1,6 @@
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.exe.config
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.exe
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.pdb
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ResolveAssemblyReference.cache
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.exe
+G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.pdb
