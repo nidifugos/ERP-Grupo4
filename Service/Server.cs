@@ -72,7 +72,9 @@ namespace Microsoft.ServiceModel.Samples
         [OperationContract]
         PacienteSet Agendamento_Paciente(int id);
         [OperationContract]
-        List<string> RH_MedicoEspecialidade(int cod_especialidade);
+        List<string> RH_Medicos();
+        [OperationContract]
+        int RH_MedicoId(string nome);
         [OperationContract]
         List<string> RH_Especialidade();
         [OperationContract]
@@ -94,16 +96,26 @@ namespace Microsoft.ServiceModel.Samples
             return paciente;
         }
 
-        public List<string> RH_MedicoEspecialidade(int cod_especialidade)
+        public List<string> RH_Medicos()
         {
-            List<string> medicos = new List<string>();
+            List<string> medicos = new List<string>();            
             medicos.Add("Kleber");
             medicos.Add("Gusmão");
             medicos.Add("Roberval");
             medicos.Add("Camila");
             medicos.Add("Alice");
-            Console.WriteLine("Enviando lista de médicos.");
             return medicos;
+        }
+
+        public int RH_MedicoId(string nome)
+        {
+            Dictionary<string, int> ids = new Dictionary<string, int>();
+            ids["Kleber"] = 1;
+            ids["Gusmão"] = 2;
+            ids["Roberval"] = 3;
+            ids["Camila"] = 4;
+            ids["Alice"] = 5;
+            return ids[nome];
         }
 
         public List<string> RH_Especialidade()

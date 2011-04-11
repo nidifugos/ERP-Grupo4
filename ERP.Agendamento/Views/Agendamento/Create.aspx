@@ -32,9 +32,13 @@
             <%: Html.ValidationMessageFor(model => model.Especialidade) %><br /><br />
             
             <b>Médico</b>:
-            <%: Html.TextBoxFor(model => model.Medico_Id) %>
+            <%: Html.DropDownListFor(model => model.Medico_Nome, ViewData["Medico_Nome"] as SelectList) %>
             <%: Html.ValidationMessageFor(model => model.Medico_Id) %><br /><br />
             
+            <b>Sala</b>:
+            <%: Html.TextBoxFor(model => model.Sala_Id) %>
+            <%: Html.ValidationMessageFor(model => model.Sala_Id) %><br /><br />
+
             <br />
             <p>
                 <input type="submit" value="Create" />

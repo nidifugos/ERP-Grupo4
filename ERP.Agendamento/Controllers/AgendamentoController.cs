@@ -10,7 +10,7 @@ namespace ERP.Agendamento.Controllers
 {
     public class AgendamentoController : Controller
     {
-        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities(); 
+        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities();         
 
         //
         // GET: /Agendamento/
@@ -34,31 +34,7 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Create()
         {
-            // Especialidades
-            FornecedorServiços fs = new FornecedorServiços();
-            List<String> listaEspecialidades = fs.RH_Especialidade();
-            List<SelectListItem> especialidades = new List<SelectListItem>();
-            foreach (String espec in listaEspecialidades)
-            {
-                especialidades.Add(new SelectListItem
-                {
-                    Text = espec,
-                });
-            }
-            ViewData["Especialidade"] = especialidades;
-            // Pacientes                       
-            List<Models.PacienteSet> listaPacientes = entities.PacienteSets.ToList();
-            List<SelectListItem> pacientes = new List<SelectListItem>();
-            foreach (Models.PacienteSet pac in listaPacientes)
-            {
-                pacientes.Add(new SelectListItem
-                {
-                    Text = pac.Nome + " [" + pac.Cpf + "]",
-                    Value = Convert.ToString(pac.Id),
-                });
-            }
-            ViewData["Pacientes"] = pacientes;
-            ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
+            UpdateData();               
             return View();
         } 
 
@@ -67,7 +43,9 @@ namespace ERP.Agendamento.Controllers
 
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "id")]Models.AgendamentoSet pAgendamento)
-        {            
+        {     
+            FornecedorServiços fs = new FornecedorServiços();
+            pAgendamento.Medico_Id = fs.RH_MedicoId(pAgendamento.Medico_Nome);
             try
             {
                 if (!ModelState.IsValid)
@@ -89,32 +67,8 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Edit(int id)
         {
-            var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
-            // Especialidades
-            FornecedorServiços fs = new FornecedorServiços();
-            List<String> listaEspecialidades = fs.RH_Especialidade();
-            List<SelectListItem> especialidades = new List<SelectListItem>();
-            foreach (String espec in listaEspecialidades)
-            {
-                especialidades.Add(new SelectListItem
-                {
-                    Text = espec,
-                });
-            }
-            ViewData["Especialidade"] = especialidades;
-            // Pacientes                       
-            List<Models.PacienteSet> listaPacientes = entities.PacienteSets.ToList();
-            List<SelectListItem> pacientes = new List<SelectListItem>();
-            foreach (Models.PacienteSet pac in listaPacientes)
-            {
-                pacientes.Add(new SelectListItem
-                {
-                    Text = pac.Nome + " [" + pac.Cpf + "]",
-                    Value = Convert.ToString(pac.Id),
-                });
-            }
-            ViewData["Pacientes"] = pacientes;
-            ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
+            UpdateData();
+            var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();            
             return View(agendamento);
         }
 
@@ -124,6 +78,8 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Edit(Models.AgendamentoSet agendamento)
         {
+            FornecedorServiços fs = new FornecedorServiços();
+            agendamento.Medico_Id = fs.RH_MedicoId(agendamento.Medico_Nome);
             try
             {
                 var original = (from ag in entities.AgendamentoSets where ag.Id == agendamento.Id select ag).First();
@@ -173,6 +129,49 @@ namespace ERP.Agendamento.Controllers
             string nome = (from paciente in entities.PacienteSets.ToList() where paciente.Id == id select paciente).First().Nome;
             string cpf = (from paciente in entities.PacienteSets.ToList() where paciente.Id == id select paciente).First().Cpf;
             return nome + " [" + cpf + "]";
+        }
+
+        /// <summary>
+        /// Atualiza informações sobre médicos e especialidades.
+        /// </summary>
+        private void UpdateData()
+        {
+            // Especialidades
+            FornecedorServiços fs = new FornecedorServiços();
+            List<String> listaEspecialidades = fs.RH_Especialidade();
+            List<SelectListItem> especialidades = new List<SelectListItem>();
+            foreach (String espec in listaEspecialidades)
+            {
+                especialidades.Add(new SelectListItem
+                {
+                    Text = espec,
+                });
+            }
+            ViewData["Especialidade"] = especialidades;
+            // Pacientes                       
+            List<Models.PacienteSet> listaPacientes = entities.PacienteSets.ToList();
+            List<SelectListItem> pacientes = new List<SelectListItem>();
+            foreach (Models.PacienteSet pac in listaPacientes)
+            {
+                pacientes.Add(new SelectListItem
+                {
+                    Text = pac.Nome + " [" + pac.Cpf + "]",
+                    Value = Convert.ToString(pac.Id),
+                });
+            }
+            ViewData["Pacientes"] = pacientes;
+            ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
+            // Médicos
+            List<string> listaMedicos = fs.RH_Medicos();
+            List<SelectListItem> medicos = new List<SelectListItem>();
+            foreach (string med in listaMedicos)
+            {
+                medicos.Add(new SelectListItem
+                {
+                    Text = med,
+                });
+            }
+            ViewData["Medico_Nome"] = medicos;
         }
     }
 }
