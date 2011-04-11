@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="C#" CodeBehind="FornecedorServicos.asmx.cs" Class="ERP.Agendamento.Servicos.FornecedorServicos" %>

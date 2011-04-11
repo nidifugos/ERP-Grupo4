@@ -1,5 +1,0 @@
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\Service\bin\Debug\Service.exe
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\Service\bin\Debug\Service.pdb
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\Service\obj\x86\Debug\ResolveAssemblyReference.cache
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\Service\obj\x86\Debug\Service.exe
-G:\Documents\Dev\Labsoft2\ERP-Grupo4\Service\obj\x86\Debug\Service.pdb
