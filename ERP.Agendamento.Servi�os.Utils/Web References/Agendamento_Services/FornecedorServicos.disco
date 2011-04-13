@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
   <contractRef ref="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx?wsdl" docRef="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" xmlns:q1="http://localhost:3004/" binding="q1:FornecedorServicosSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" xmlns:q2="http://localhost:3004/" binding="q2:FornecedorServicosSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" xmlns:q1="http://labsoft.pcs.usp.br:3004/" binding="q1:FornecedorServicosSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" xmlns:q2="http://labsoft.pcs.usp.br:3004/" binding="q2:FornecedorServicosSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
 </discovery>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:3004/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:3004/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://labsoft.pcs.usp.br:3004/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://labsoft.pcs.usp.br:3004/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:3004/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://labsoft.pcs.usp.br:3004/">
       <s:element name="AgendamentosByMedicos">
         <s:complexType>
           <s:sequence>
@@ -63,7 +63,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="convenio" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="Manutencao">
+      <s:element name="NotificarManutencao">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="dataInicio" type="s:dateTime" />
@@ -72,7 +72,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="ManutencaoResponse">
+      <s:element name="NotificarManutencaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="NotificarFerias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataFim" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="medicoId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotificarFeriasResponse">
         <s:complexType />
       </s:element>
     </s:schema>
@@ -89,11 +101,17 @@
   <wsdl:message name="PacienteByIdSoapOut">
     <wsdl:part name="parameters" element="tns:PacienteByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="ManutencaoSoapIn">
-    <wsdl:part name="parameters" element="tns:Manutencao" />
+  <wsdl:message name="NotificarManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:NotificarManutencao" />
   </wsdl:message>
-  <wsdl:message name="ManutencaoSoapOut">
-    <wsdl:part name="parameters" element="tns:ManutencaoResponse" />
+  <wsdl:message name="NotificarManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:NotificarManutencaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotificarFeriasSoapIn">
+    <wsdl:part name="parameters" element="tns:NotificarFerias" />
+  </wsdl:message>
+  <wsdl:message name="NotificarFeriasSoapOut">
+    <wsdl:part name="parameters" element="tns:NotificarFeriasResponse" />
   </wsdl:message>
   <wsdl:portType name="FornecedorServicosSoap">
     <wsdl:operation name="AgendamentosByMedicos">
@@ -104,15 +122,19 @@
       <wsdl:input message="tns:PacienteByIdSoapIn" />
       <wsdl:output message="tns:PacienteByIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Manutencao">
-      <wsdl:input message="tns:ManutencaoSoapIn" />
-      <wsdl:output message="tns:ManutencaoSoapOut" />
+    <wsdl:operation name="NotificarManutencao">
+      <wsdl:input message="tns:NotificarManutencaoSoapIn" />
+      <wsdl:output message="tns:NotificarManutencaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotificarFerias">
+      <wsdl:input message="tns:NotificarFeriasSoapIn" />
+      <wsdl:output message="tns:NotificarFeriasSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="FornecedorServicosSoap" type="tns:FornecedorServicosSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AgendamentosByMedicos">
-      <soap:operation soapAction="http://localhost:3004/AgendamentosByMedicos" style="document" />
+      <soap:operation soapAction="http://labsoft.pcs.usp.br:3004/AgendamentosByMedicos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -121,7 +143,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="PacienteById">
-      <soap:operation soapAction="http://localhost:3004/PacienteById" style="document" />
+      <soap:operation soapAction="http://labsoft.pcs.usp.br:3004/PacienteById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -129,8 +151,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Manutencao">
-      <soap:operation soapAction="http://localhost:3004/Manutencao" style="document" />
+    <wsdl:operation name="NotificarManutencao">
+      <soap:operation soapAction="http://labsoft.pcs.usp.br:3004/NotificarManutencao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarFerias">
+      <soap:operation soapAction="http://labsoft.pcs.usp.br:3004/NotificarFerias" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -142,7 +173,7 @@
   <wsdl:binding name="FornecedorServicosSoap12" type="tns:FornecedorServicosSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AgendamentosByMedicos">
-      <soap12:operation soapAction="http://localhost:3004/AgendamentosByMedicos" style="document" />
+      <soap12:operation soapAction="http://labsoft.pcs.usp.br:3004/AgendamentosByMedicos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -151,7 +182,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="PacienteById">
-      <soap12:operation soapAction="http://localhost:3004/PacienteById" style="document" />
+      <soap12:operation soapAction="http://labsoft.pcs.usp.br:3004/PacienteById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -159,8 +190,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Manutencao">
-      <soap12:operation soapAction="http://localhost:3004/Manutencao" style="document" />
+    <wsdl:operation name="NotificarManutencao">
+      <soap12:operation soapAction="http://labsoft.pcs.usp.br:3004/NotificarManutencao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotificarFerias">
+      <soap12:operation soapAction="http://labsoft.pcs.usp.br:3004/NotificarFerias" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

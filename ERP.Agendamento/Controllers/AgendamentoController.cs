@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ERP.Agendamento.Serviços.Utils;
 
 namespace ERP.Agendamento.Controllers
 {
@@ -41,9 +42,7 @@ namespace ERP.Agendamento.Controllers
 
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "id")]Models.AgendamentoSet pAgendamento)
-        {     
-            FornecedorServiços fs = new FornecedorServiços();
-            pAgendamento.Medico_Id = fs.RH_MedicoId(pAgendamento.Medico_Nome);
+        {   
             try
             {
                 if (!ModelState.IsValid)
@@ -76,8 +75,6 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Edit(Models.AgendamentoSet agendamento)
         {
-            FornecedorServiços fs = new FornecedorServiços();
-            agendamento.Medico_Id = fs.RH_MedicoId(agendamento.Medico_Nome);
             try
             {
                 var original = (from ag in entities.AgendamentoSets where ag.Id == agendamento.Id select ag).First();
@@ -135,14 +132,13 @@ namespace ERP.Agendamento.Controllers
         private void UpdateData()
         {
             // Especialidades
-            FornecedorServiços fs = new FornecedorServiços();
-            List<String> listaEspecialidades = fs.RH_Especialidade();
+            List<KeyValuePair<int, string>> listaEspecialidades = SolicitadorServiços.AccessRH_Especialidade();
             List<SelectListItem> especialidades = new List<SelectListItem>();
-            foreach (String espec in listaEspecialidades)
+            foreach (KeyValuePair<int, string> espec in listaEspecialidades)
             {
                 especialidades.Add(new SelectListItem
                 {
-                    Text = espec,
+                    Text = espec.Value,
                 });
             }
             ViewData["Especialidade"] = especialidades;
@@ -160,7 +156,7 @@ namespace ERP.Agendamento.Controllers
             ViewData["Pacientes"] = pacientes;
             ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             // Médicos
-            List<string> listaMedicos = fs.RH_Medicos();
+            List<string> listaMedicos = SolicitadorServiços.AccessRH_MedicoEspecialidade(1, DateTime.Now, DateTime.Now.AddDays(300));
             List<SelectListItem> medicos = new List<SelectListItem>();
             foreach (string med in listaMedicos)
             {

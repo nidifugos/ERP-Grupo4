@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="\\ls01/fabricas/fabrica4" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/ERP.Agendamento.Servicos.pdb" publishTime="04/13/2011 14:54:25" />
+    <file relUrl="bin/ERP.Agendamento.Servicos.pdb" publishTime="04/13/2011 15:16:09" />
     <file relUrl="bin/itextsharp.dll" publishTime="04/13/2011 13:06:03" />
     <file relUrl="FornecedorServicos.asmx" publishTime="04/13/2011 13:06:03" />
     <file relUrl="Web.config" publishTime="04/13/2011 13:12:01" />
-    <file relUrl="bin/ERP.Agendamento.Servicos.dll" publishTime="04/13/2011 14:54:26" />
+    <file relUrl="bin/ERP.Agendamento.Servicos.dll" publishTime="04/13/2011 15:16:09" />
     <file relUrl="bin/ERP.Agendamento.Dados.pdb" publishTime="04/13/2011 14:54:25" />
     <file relUrl="bin/ERP.Agendamento.Dados.exe" publishTime="04/13/2011 14:54:25" />
   </publishProfile>

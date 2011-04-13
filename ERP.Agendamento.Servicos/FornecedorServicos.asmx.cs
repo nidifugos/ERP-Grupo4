@@ -10,7 +10,7 @@ namespace ERP.Agendamento.Servicos
     /// <summary>
     /// Summary description for Service1
     /// </summary>
-    [WebService(Namespace = "http://labsoft.pcs.usp.br:3004/")]
+    [WebService(Namespace = "http://localhost:3004/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
