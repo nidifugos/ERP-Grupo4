@@ -9,9 +9,13 @@ namespace ERP.Agendamento.Dados
     {
         static void Main(string[] args)
         {
+            
+
             Console.WriteLine("Executando testes de relatórios.");
 
             GerenciadorRelatórios.AgendaMédica agenda = new GerenciadorRelatórios.AgendaMédica(1, 6);
+
+            VisualizadorRelatorioPDF.Agenda(agenda);
 
             Console.WriteLine("--------------------------------------------------------------------");
             Console.WriteLine("");
@@ -45,6 +49,8 @@ namespace ERP.Agendamento.Dados
 
             GerenciadorRelatórios.AgendamentosSetores estatisticaSetor = new GerenciadorRelatórios.AgendamentosSetores();
 
+            VisualizadorRelatorioPDF.AgendamentosSetores(estatisticaSetor);
+
             foreach (KeyValuePair<string, float> agendamentoSetor in estatisticaSetor.AgendamentosSetor.ToList())
             {
                 Console.WriteLine("Setor: {0} - Agendamentos: {1}", agendamentoSetor.Key, agendamentoSetor.Value);
@@ -61,6 +67,8 @@ namespace ERP.Agendamento.Dados
             Console.WriteLine("--------------------------------------------------------------------");
 
             GerenciadorRelatórios.AgendamentosEstatísticas agendamentoEstatistica = new GerenciadorRelatórios.AgendamentosEstatísticas();
+
+            VisualizadorRelatorioPDF.EstatisticasAgendamento(agendamentoEstatistica);
 
             Console.WriteLine("");
             Console.WriteLine("Porcentagem de agendamentos cancelados: {0}", agendamentoEstatistica.PorcentagemCancelados);
