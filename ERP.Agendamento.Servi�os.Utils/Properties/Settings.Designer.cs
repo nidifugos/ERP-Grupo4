@@ -26,10 +26,20 @@ namespace ERP.Agendamento.Serviços.Utils.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://ls01:3001/rh_servico.asmx")]
-        public string ERP_Agendamento_Serviços_Utils_RH_Servicos_RH_Servico {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx")]
+        public string ERP_Agendamento_Serviços_Utils_br_usp_pcs_labsoft_local_FornecedorServicos {
             get {
-                return ((string)(this["ERP_Agendamento_Serviços_Utils_RH_Servicos_RH_Servico"]));
+                return ((string)(this["ERP_Agendamento_Serviços_Utils_br_usp_pcs_labsoft_local_FornecedorServicos"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://labsoft.pcs.usp.br:3001/RH_Servico.asmx")]
+        public string ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico {
+            get {
+                return ((string)(this["ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico"]));
             }
         }
     }

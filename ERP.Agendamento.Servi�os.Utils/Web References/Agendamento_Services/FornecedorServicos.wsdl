@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:3004/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:3004/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:3004/">
+      <s:element name="AgendamentosByMedicos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgendamentosByMedicosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgendamentosByMedicosResult" type="tns:ArrayOfAgendamento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAgendamento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Agendamento" nillable="true" type="tns:Agendamento" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Agendamento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="medico_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="medico_nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="paciente_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="paciente_nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataAtendimento" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PacienteById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PacienteByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PacienteByIdResult" type="tns:Paciente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Paciente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cpf" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="data_nascimento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="peso" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="altura" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_sanguineo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="afiliacao_pai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="afiliacao_mae" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="endereco_residencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefone_residencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="endereco_comercial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefone_comercial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefone_celular" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="convenio" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Manutencao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dataInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataFim" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="salaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManutencaoResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AgendamentosByMedicosSoapIn">
+    <wsdl:part name="parameters" element="tns:AgendamentosByMedicos" />
+  </wsdl:message>
+  <wsdl:message name="AgendamentosByMedicosSoapOut">
+    <wsdl:part name="parameters" element="tns:AgendamentosByMedicosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PacienteByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:PacienteById" />
+  </wsdl:message>
+  <wsdl:message name="PacienteByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:PacienteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManutencaoSoapIn">
+    <wsdl:part name="parameters" element="tns:Manutencao" />
+  </wsdl:message>
+  <wsdl:message name="ManutencaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ManutencaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FornecedorServicosSoap">
+    <wsdl:operation name="AgendamentosByMedicos">
+      <wsdl:input message="tns:AgendamentosByMedicosSoapIn" />
+      <wsdl:output message="tns:AgendamentosByMedicosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PacienteById">
+      <wsdl:input message="tns:PacienteByIdSoapIn" />
+      <wsdl:output message="tns:PacienteByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Manutencao">
+      <wsdl:input message="tns:ManutencaoSoapIn" />
+      <wsdl:output message="tns:ManutencaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FornecedorServicosSoap" type="tns:FornecedorServicosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AgendamentosByMedicos">
+      <soap:operation soapAction="http://localhost:3004/AgendamentosByMedicos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PacienteById">
+      <soap:operation soapAction="http://localhost:3004/PacienteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Manutencao">
+      <soap:operation soapAction="http://localhost:3004/Manutencao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FornecedorServicosSoap12" type="tns:FornecedorServicosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AgendamentosByMedicos">
+      <soap12:operation soapAction="http://localhost:3004/AgendamentosByMedicos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PacienteById">
+      <soap12:operation soapAction="http://localhost:3004/PacienteById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Manutencao">
+      <soap12:operation soapAction="http://localhost:3004/Manutencao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FornecedorServicos">
+    <wsdl:port name="FornecedorServicosSoap" binding="tns:FornecedorServicosSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FornecedorServicosSoap12" binding="tns:FornecedorServicosSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

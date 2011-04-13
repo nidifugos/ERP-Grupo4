@@ -55,7 +55,12 @@
     <Compile Include="ServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolicitadorServiços.cs" />
-    <Compile Include="Web References\RH_Servicos\Reference.cs">
+    <Compile Include="Web References\Agendamento_Services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RH_Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -67,11 +72,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\RH_Servicos\Reference.map">
+    <None Include="Web References\Agendamento_Services\Agendamento1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Agendamento_Services\FornecedorServicos.wsdl" />
+    <None Include="Web References\Agendamento_Services\Paciente1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Agendamento_Services\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\RH_Servicos\rh_servico.wsdl" />
+    <None Include="Web References\RH_Services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RH_Services\RH_Servico.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -80,20 +96,34 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://ls01:3001/rh_servico.asmx">
+    <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3001/RH_Servico.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\RH_Servicos\</RelPath>
-      <UpdateFromURL>http://ls01:3001/rh_servico.asmx</UpdateFromURL>
+      <RelPath>Web References\RH_Services\</RelPath>
+      <UpdateFromURL>http://labsoft.pcs.usp.br:3001/RH_Servico.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_RH_Servicos_RH_Servico</CachedSettingsPropName>
+      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Agendamento_Services\</RelPath>
+      <UpdateFromURL>http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_br_usp_pcs_labsoft_local_FornecedorServicos</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\RH_Servicos\rh_servico.disco" />
+    <None Include="Web References\Agendamento_Services\FornecedorServicos.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\RH_Services\RH_Servico.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

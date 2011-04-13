@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:3001/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:3001/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:3001/">
+      <s:element name="buscaFuncionarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaFuncionariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaFuncionariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaDadosFuncionarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaDadosFuncionariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaDadosFuncionariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaPagamentos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idFunc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaPagamentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaPagamentosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaFolhaPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaFolhaPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaFolhaPagamentoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscaBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscaBeneficioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RH_MedicoEspecialidade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdEspecialidade" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="data" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RH_MedicoEspecialidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RH_MedicoEspecialidadeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listEspecialidade">
+        <s:complexType />
+      </s:element>
+      <s:element name="listEspecialidadeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listEspecialidadeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="buscaFuncionariosSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="buscaFuncionariosSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaDadosFuncionariosSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaDadosFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="buscaDadosFuncionariosSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaDadosFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaPagamentosSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaPagamentos" />
+  </wsdl:message>
+  <wsdl:message name="buscaPagamentosSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaPagamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaFolhaPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaFolhaPagamento" />
+  </wsdl:message>
+  <wsdl:message name="buscaFolhaPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaFolhaPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscaBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:buscaBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="buscaBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:buscaBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="RH_MedicoEspecialidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:RH_MedicoEspecialidade" />
+  </wsdl:message>
+  <wsdl:message name="RH_MedicoEspecialidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:RH_MedicoEspecialidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="listEspecialidadeSoapIn">
+    <wsdl:part name="parameters" element="tns:listEspecialidade" />
+  </wsdl:message>
+  <wsdl:message name="listEspecialidadeSoapOut">
+    <wsdl:part name="parameters" element="tns:listEspecialidadeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RH_ServicoSoap">
+    <wsdl:operation name="buscaFuncionarios">
+      <wsdl:input message="tns:buscaFuncionariosSoapIn" />
+      <wsdl:output message="tns:buscaFuncionariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaDadosFuncionarios">
+      <wsdl:input message="tns:buscaDadosFuncionariosSoapIn" />
+      <wsdl:output message="tns:buscaDadosFuncionariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaPagamentos">
+      <wsdl:input message="tns:buscaPagamentosSoapIn" />
+      <wsdl:output message="tns:buscaPagamentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaFolhaPagamento">
+      <wsdl:input message="tns:buscaFolhaPagamentoSoapIn" />
+      <wsdl:output message="tns:buscaFolhaPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscaBeneficio">
+      <wsdl:input message="tns:buscaBeneficioSoapIn" />
+      <wsdl:output message="tns:buscaBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RH_MedicoEspecialidade">
+      <wsdl:input message="tns:RH_MedicoEspecialidadeSoapIn" />
+      <wsdl:output message="tns:RH_MedicoEspecialidadeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listEspecialidade">
+      <wsdl:input message="tns:listEspecialidadeSoapIn" />
+      <wsdl:output message="tns:listEspecialidadeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RH_ServicoSoap" type="tns:RH_ServicoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="buscaFuncionarios">
+      <soap:operation soapAction="http://localhost:3001/buscaFuncionarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaDadosFuncionarios">
+      <soap:operation soapAction="http://localhost:3001/buscaDadosFuncionarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaPagamentos">
+      <soap:operation soapAction="http://localhost:3001/buscaPagamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaFolhaPagamento">
+      <soap:operation soapAction="http://localhost:3001/buscaFolhaPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaBeneficio">
+      <soap:operation soapAction="http://localhost:3001/buscaBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RH_MedicoEspecialidade">
+      <soap:operation soapAction="http://localhost:3001/RH_MedicoEspecialidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listEspecialidade">
+      <soap:operation soapAction="http://localhost:3001/listEspecialidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RH_ServicoSoap12" type="tns:RH_ServicoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="buscaFuncionarios">
+      <soap12:operation soapAction="http://localhost:3001/buscaFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaDadosFuncionarios">
+      <soap12:operation soapAction="http://localhost:3001/buscaDadosFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaPagamentos">
+      <soap12:operation soapAction="http://localhost:3001/buscaPagamentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaFolhaPagamento">
+      <soap12:operation soapAction="http://localhost:3001/buscaFolhaPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscaBeneficio">
+      <soap12:operation soapAction="http://localhost:3001/buscaBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RH_MedicoEspecialidade">
+      <soap12:operation soapAction="http://localhost:3001/RH_MedicoEspecialidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listEspecialidade">
+      <soap12:operation soapAction="http://localhost:3001/listEspecialidade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RH_Servico">
+    <wsdl:port name="RH_ServicoSoap" binding="tns:RH_ServicoSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:3001/RH_Servico.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RH_ServicoSoap12" binding="tns:RH_ServicoSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:3001/RH_Servico.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

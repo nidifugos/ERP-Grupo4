@@ -11,8 +11,18 @@ namespace ERP.Agendamento.Serviços.Utils
         {
             try
             {
+                //Agendamento_Services.FornecedorServicos service = new br.usp.pcs.labsoft.local.FornecedorServicos();
 
-                SolicitadorServiços.AccessRH_Especialidade();
+                //foreach (Agendamento_Services.Agendamento ag in service.AgendamentosByMedicos(1))
+                //{
+                //    Console.WriteLine("Data : {0}", ag.dataAtendimento);
+                //    Console.WriteLine("Medico ID : {0}", ag.medico_id);
+                //    Console.WriteLine("Medico Nome : {0}", ag.medico_nome);
+                //    Console.WriteLine("Paciente ID : {0}", ag.paciente_id);
+                //    Console.WriteLine("Paciente Nome : {0}", ag.paciente_nome);
+                //    Console.WriteLine();
+                //}
+
                 ////Teste do serviço de pacientes
                 //Console.WriteLine("Buscando paciente com id 15");
                 //Console.WriteLine("");
@@ -41,12 +51,12 @@ namespace ERP.Agendamento.Serviços.Utils
                 //Console.WriteLine("");
                 //Console.WriteLine("");
 
-                ////Teste do serviço de especialidades
+                //Teste do serviço de especialidades
                 //Console.WriteLine("Listando especialidades:");
                 //Console.WriteLine("");
-                //foreach(string especialidade in SolicitadorServiços.AccessRH_Especialidade())
+                //foreach (KeyValuePair<int, string> especialidade in SolicitadorServiços.AccessRH_Especialidade())
                 //{
-                //    Console.WriteLine("{0}", especialidade);
+                //    Console.WriteLine("ID: {0} - Nome: {1}", especialidade.Key, especialidade.Value);
                 //}
                 //Console.WriteLine("");
                 //Console.WriteLine("");
