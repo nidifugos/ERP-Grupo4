@@ -1,16 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<ERP.Agendamento.Models.AgendamentoSet>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Agendamentos
+	Consolidate
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Agendamentos</h2>
-
-    <p><%: Html.ActionLink("Novo agendamento", "Create") %></p>
-    <p><%: Html.ActionLink("Consolidar agendamentos", "Consolidate") %></p>
-
+    <h2>Consolidate</h2>
     <table>
         <tr>
             <th></th>            
@@ -72,4 +68,3 @@
 
     </table>
 </asp:Content>
-

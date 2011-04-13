@@ -118,6 +118,15 @@ namespace ERP.Agendamento.Controllers
             }
         }
 
+
+        //
+        // GET: /Agendamento/Consolidate
+
+        public ActionResult Consolidate()
+        {
+            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "remarcar" select agendamentos).ToList());
+        }
+
         public string ShowPaciente()
         {
             int id = 15;
