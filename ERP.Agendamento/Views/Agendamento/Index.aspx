@@ -10,6 +10,7 @@
 
     <p><%: Html.ActionLink("Novo agendamento", "Create") %></p>
     <p><%: Html.ActionLink("Consolidar agendamentos", "Consolidate") %></p>
+    <p><%: Html.ActionLink("Confirmar agendamentos", "Evaluate") %></p>
 
     <table>
         <tr>

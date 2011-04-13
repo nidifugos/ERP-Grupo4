@@ -8,5 +8,8 @@
     <Setting Name="ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://labsoft.pcs.usp.br:3001/RH_Servico.asmx</Value>
     </Setting>
+    <Setting Name="ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+      <s:element name="ListaServicos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaServicosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaServicosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaConvenios">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaConveniosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaConveniosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DadosClinica">
+        <s:complexType />
+      </s:element>
+      <s:element name="DadosClinicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DadosClinicaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDescontos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaDescontosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDescontosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDescontosConvenios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoConvenio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaDescontosConveniosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaDescontosConveniosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaServicosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaServicos" />
+  </wsdl:message>
+  <wsdl:message name="ListaServicosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaServicosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaConveniosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaConvenios" />
+  </wsdl:message>
+  <wsdl:message name="ListaConveniosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaConveniosResponse" />
+  </wsdl:message>
+  <wsdl:message name="DadosClinicaSoapIn">
+    <wsdl:part name="parameters" element="tns:DadosClinica" />
+  </wsdl:message>
+  <wsdl:message name="DadosClinicaSoapOut">
+    <wsdl:part name="parameters" element="tns:DadosClinicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDescontosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDescontos" />
+  </wsdl:message>
+  <wsdl:message name="ListaDescontosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDescontosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaDescontosConveniosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaDescontosConvenios" />
+  </wsdl:message>
+  <wsdl:message name="ListaDescontosConveniosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaDescontosConveniosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AdministracaoWSSoap">
+    <wsdl:operation name="ListaServicos">
+      <wsdl:input message="tns:ListaServicosSoapIn" />
+      <wsdl:output message="tns:ListaServicosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaConvenios">
+      <wsdl:input message="tns:ListaConveniosSoapIn" />
+      <wsdl:output message="tns:ListaConveniosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DadosClinica">
+      <wsdl:input message="tns:DadosClinicaSoapIn" />
+      <wsdl:output message="tns:DadosClinicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontos">
+      <wsdl:input message="tns:ListaDescontosSoapIn" />
+      <wsdl:output message="tns:ListaDescontosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontosConvenios">
+      <wsdl:input message="tns:ListaDescontosConveniosSoapIn" />
+      <wsdl:output message="tns:ListaDescontosConveniosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdministracaoWSSoap" type="tns:AdministracaoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaServicos">
+      <soap:operation soapAction="http://localhost/ListaServicos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaConvenios">
+      <soap:operation soapAction="http://localhost/ListaConvenios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DadosClinica">
+      <soap:operation soapAction="http://localhost/DadosClinica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontos">
+      <soap:operation soapAction="http://localhost/ListaDescontos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontosConvenios">
+      <soap:operation soapAction="http://localhost/ListaDescontosConvenios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdministracaoWSSoap12" type="tns:AdministracaoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaServicos">
+      <soap12:operation soapAction="http://localhost/ListaServicos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaConvenios">
+      <soap12:operation soapAction="http://localhost/ListaConvenios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DadosClinica">
+      <soap12:operation soapAction="http://localhost/DadosClinica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontos">
+      <soap12:operation soapAction="http://localhost/ListaDescontos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaDescontosConvenios">
+      <soap12:operation soapAction="http://localhost/ListaDescontosConvenios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdministracaoWS">
+    <wsdl:port name="AdministracaoWSSoap" binding="tns:AdministracaoWSSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdministracaoWSSoap12" binding="tns:AdministracaoWSSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

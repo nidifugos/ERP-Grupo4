@@ -127,6 +127,39 @@ namespace ERP.Agendamento.Controllers
             return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "remarcar" select agendamentos).ToList());
         }
 
+
+        //
+        // GET: /Agendamento/Evaluate
+
+        public ActionResult Evaluate()
+        {
+            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "marcado" select agendamentos).ToList());
+        }
+
+
+        //
+        // GET: /Agendamento/Confirm
+
+        public ActionResult Confirm(int agendamento_id)
+        {
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
+            agendamento.Estado = "confirmado";
+            entities.SaveChanges();
+            return View();
+        }
+
+
+        //
+        // GET: /Agendamento/Cancel
+
+        public ActionResult Cancel(int agendamento_id)
+        {
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
+            agendamento.Estado = "cancelado";
+            entities.SaveChanges();
+            return View();
+        }
+
         public string ShowPaciente()
         {
             int id = 15;
@@ -166,8 +199,12 @@ namespace ERP.Agendamento.Controllers
             ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             // Médicos
             List<string> listaMedicos = SolicitadorServiços.AccessRH_MedicoEspecialidade(1, DateTime.Now, DateTime.Now.AddDays(300));
+            List<string> listaFake = new List<string>();
+            listaFake.Add("Perilonio");
+            listaFake.Add("Adalberto");
+            listaFake.Add("Roberval");
             List<SelectListItem> medicos = new List<SelectListItem>();
-            foreach (string med in listaMedicos)
+            foreach (string med in listaFake)
             {
                 medicos.Add(new SelectListItem
                 {

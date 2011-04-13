@@ -42,5 +42,15 @@ namespace ERP.Agendamento.Serviços.Utils.Properties {
                 return ((string)(this["ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx")]
+        public string ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS {
+            get {
+                return ((string)(this["ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS"]));
+            }
+        }
     }
 }

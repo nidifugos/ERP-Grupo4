@@ -70,6 +70,11 @@
     <Compile Include="ServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolicitadorServiços.cs" />
+    <Compile Include="Web References\Administracao_Services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Agendamento_Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +91,11 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Administracao_Services\AdministracaoWS.wsdl" />
+    <None Include="Web References\Administracao_Services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\Agendamento_Services\Agendamento1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -133,6 +143,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_br_usp_pcs_labsoft_local_FornecedorServicos</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Administracao_Services\</RelPath>
+      <UpdateFromURL>http://labsoft.pcs.usp.br:3005/AdministracaoWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\Agendamento_Services\FornecedorServicos.disco" />
@@ -161,6 +182,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\Administracao_Services\AdministracaoWS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

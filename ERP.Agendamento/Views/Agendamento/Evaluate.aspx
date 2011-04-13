@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Consolidar agendamentos
+	Confirmar agendamentos
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Consolidar agendamentos</h2>
+    <h2>Confirmar agendamentos</h2>
+    
     <table>
         <tr>
             <th></th>            
@@ -31,15 +32,23 @@
             <th>
                 Sala
             </th>
+            <th>
+                Telefone Residencial
+            </th>
+            <th>
+                Telefone Comercial
+            </th>
+            <th>
+                Celular
+            </th>
         </tr>
 
     <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%: Html.ActionLink("Editar", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Detalhes", "Details", new { id=item.Id })%> |
-                <%: Html.ActionLink("Remover", "Delete", new { id=item.Id })%>
+                <%: Html.ActionLink("Confirmar", "Confirm", new { id=item.Id }) %> |
+                <%: Html.ActionLink("Cancelar", "Cancel", new { id=item.Id })%>
             </td>            
             <td>
                 <%: String.Format("{0:g}", item.Datahora) %>
@@ -62,9 +71,20 @@
             <td>
                 <%: item.Sala_Id %>
             </td>
+            
+            <td>
+                <%: item.PacienteSet.TelefoneResidencial %>
+            </td>
+            <td>
+                <%: item.PacienteSet.TelefoneComercial %>
+            </td>
+            <td>
+                <%: item.PacienteSet.TelefoneCelular %>
+            </td>
         </tr>
     
     <% } %>
 
     </table>
+
 </asp:Content>
