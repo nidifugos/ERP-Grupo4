@@ -52,7 +52,9 @@ namespace ERP.Agendamento.Dados
         public static void AddFerias(DateTime dataInicio, DateTime dataFim, int medicoId)
         {
             //alterando status dos agendamentos atuais
-            foreach (AgendamentoSet agendamento in (from agendamentos in entities.AgendamentoSets where agendamentos.Datahora >= dataInicio && agendamentos.Datahora <= dataFim && agendamentos.Medico_Id == medicoId select agendamentos).ToList())
+            foreach (AgendamentoSet agendamento in (from agendamentos in entities.AgendamentoSets 
+                                                    where agendamentos.Datahora >= dataInicio && agendamentos.Datahora <= dataFim && agendamentos.Medico_Id == medicoId 
+                                                    select agendamentos).ToList())
             {
                 agendamento.Estado = "remarcar";
             }

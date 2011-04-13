@@ -23,7 +23,7 @@ namespace ERP.Agendamento.Dados
             Console.WriteLine("");
             Console.WriteLine("--------------------------------------------------------------------");
 
-            foreach(KeyValuePair<int, List<AgendamentoSet>> agendamentoMes in agenda.Agenda.ToList())
+            foreach (KeyValuePair<int, List<AgendamentoSet>> agendamentoMes in agenda.Agenda.ToList())
             {
                 Console.WriteLine("Mes {0}", agendamentoMes.Key);
                 foreach (AgendamentoSet agendamento in agendamentoMes.Value)

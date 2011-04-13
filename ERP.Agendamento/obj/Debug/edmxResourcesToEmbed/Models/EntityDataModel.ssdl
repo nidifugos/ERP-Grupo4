@@ -27,7 +27,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Data_Inicio" Type="datetime" Nullable="false" />
     <Property Name="Data_Fim" Type="datetime" Nullable="false" />
     <Property Name="Sala_Id" Type="int" Nullable="false" />

@@ -1,14 +1,14 @@
 G:\Documents\Dev\Labsoft2\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.dll
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Serviços.Utils.exe
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Serviços.Utils.pdb
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.dll
-C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.pdb
 C:\bin\Debug\ERP.Agendamento.dll
 C:\bin\Debug\ERP.Agendamento.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Debug\ERP.Agendamento.dll
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Debug\ERP.Agendamento.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Debug\ERP.Agendamento.Serviços.Utils.exe
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\Debug\ERP.Agendamento.Serviços.Utils.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.dll
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\obj\Debug\ERP.Agendamento.pdb
