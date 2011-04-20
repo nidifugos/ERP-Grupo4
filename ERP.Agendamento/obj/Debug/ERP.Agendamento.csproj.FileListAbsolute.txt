@@ -5,3 +5,6 @@ C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.dll
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.pdb
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Serviços.Utils.exe
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Serviços.Utils.pdb
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Dados.exe
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\itextsharp.dll
+C:\Users\5945841\ERP-Grupo4\ERP.Agendamento\bin\ERP.Agendamento.Dados.pdb

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="obterEspacoFisico">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterEspacoFisicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterEspacoFisicoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="obterEspacoFisicoSoapIn">
+    <wsdl:part name="parameters" element="tns:obterEspacoFisico" />
+  </wsdl:message>
+  <wsdl:message name="obterEspacoFisicoSoapOut">
+    <wsdl:part name="parameters" element="tns:obterEspacoFisicoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EspacoFisicoWSSoap">
+    <wsdl:operation name="obterEspacoFisico">
+      <wsdl:input message="tns:obterEspacoFisicoSoapIn" />
+      <wsdl:output message="tns:obterEspacoFisicoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EspacoFisicoWSSoap" type="tns:EspacoFisicoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterEspacoFisico">
+      <soap:operation soapAction="http://tempuri.org/obterEspacoFisico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EspacoFisicoWSSoap12" type="tns:EspacoFisicoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterEspacoFisico">
+      <soap12:operation soapAction="http://tempuri.org/obterEspacoFisico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EspacoFisicoWS">
+    <wsdl:port name="EspacoFisicoWSSoap" binding="tns:EspacoFisicoWSSoap">
+      <soap:address location="http://labsoft.pcs.usp.br:3002/EspacoFisicoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EspacoFisicoWSSoap12" binding="tns:EspacoFisicoWSSoap12">
+      <soap12:address location="http://labsoft.pcs.usp.br:3002/EspacoFisicoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

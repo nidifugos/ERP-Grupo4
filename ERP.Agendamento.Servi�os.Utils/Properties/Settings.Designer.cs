@@ -52,5 +52,25 @@ namespace ERP.Agendamento.Serviços.Utils.Properties {
                 return ((string)(this["ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://labsoft.pcs.usp.br:3002/EspacoFisicoWS.asmx")]
+        public string ERP_Agendamento_Serviços_Utils_Logistica_Services_EspacoFisicoWS {
+            get {
+                return ((string)(this["ERP_Agendamento_Serviços_Utils_Logistica_Services_EspacoFisicoWS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://labsoft.pcs.usp.br:3006/ManutencaoAgendamento.asmx")]
+        public string ERP_Agendamento_Serviços_Utils_Manutencao_Services_WebService1 {
+            get {
+                return ((string)(this["ERP_Agendamento_Serviços_Utils_Manutencao_Services_WebService1"]));
+            }
+        }
     }
 }
