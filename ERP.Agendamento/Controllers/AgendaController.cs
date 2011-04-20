@@ -28,8 +28,8 @@ namespace ERP.Agendamento.Controllers
         {
             if ((string)Session["logged"] == "")
                 return RedirectToAction("Logon", "Account");
-            ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica(id, 6);
-            ViewData["Agendamentos"] = agenda.Agenda;
+            ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica(id, 6);
+            ViewData["Agendamentos"] = agenda.Agenda.ToList();
             return View();
         }
     }

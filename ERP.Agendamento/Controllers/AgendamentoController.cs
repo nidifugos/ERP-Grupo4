@@ -9,7 +9,39 @@ namespace ERP.Agendamento.Controllers
 {
     public class AgendamentoController : Controller
     {
-        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities();         
+        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities();
+
+        public ActionResult Evaluate()
+        {
+            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "marcado" select agendamentos).ToList());
+        }
+
+        public ActionResult Confirm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Confirm(int agendamento_id)
+        {
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).First();
+            agendamento.Estado = "confirmado";
+            entities.SaveChanges();
+            return View();
+        }
+        
+        public ActionResult Cancel(int agendamento_id)
+        {
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
+            agendamento.Estado = "cancelado";
+            entities.SaveChanges();
+            return View();
+        }
+
+        public ActionResult Consolidate()
+        {
+            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "remarcar" select agendamentos).ToList());
+        }
 
         //
         // GET: /Agendamento/
@@ -231,6 +263,14 @@ namespace ERP.Agendamento.Controllers
                     Text = med,                    
                 });
             }
+            medicos.Add(new SelectListItem
+            {
+                Text = "José Piccina",
+            });
+            medicos.Add(new SelectListItem
+            {
+                Text = "Carlos Gomes",
+            });
             ViewData["Medico_Nome"] = medicos;
         }
     }

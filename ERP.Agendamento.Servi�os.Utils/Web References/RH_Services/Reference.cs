@@ -27,8 +27,10 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="RH_ServicoSoap", Namespace="http://localhost:3001/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="RH_ServicoSoap", Namespace="http://localhost:7088/")]
     public partial class RH_Servico : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
+        private System.Threading.SendOrPostCallback registraESOperationCompleted;
         
         private System.Threading.SendOrPostCallback buscaFuncionariosOperationCompleted;
         
@@ -83,6 +85,9 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
+        public event registraESCompletedEventHandler registraESCompleted;
+        
+        /// <remarks/>
         public event buscaFuncionariosCompletedEventHandler buscaFuncionariosCompleted;
         
         /// <remarks/>
@@ -104,7 +109,38 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         public event listEspecialidadeCompletedEventHandler listEspecialidadeCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/buscaFuncionarios", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/registraES", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool registraES(int idFuncionario, System.DateTime data) {
+            object[] results = this.Invoke("registraES", new object[] {
+                        idFuncionario,
+                        data});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void registraESAsync(int idFuncionario, System.DateTime data) {
+            this.registraESAsync(idFuncionario, data, null);
+        }
+        
+        /// <remarks/>
+        public void registraESAsync(int idFuncionario, System.DateTime data, object userState) {
+            if ((this.registraESOperationCompleted == null)) {
+                this.registraESOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistraESOperationCompleted);
+            }
+            this.InvokeAsync("registraES", new object[] {
+                        idFuncionario,
+                        data}, this.registraESOperationCompleted, userState);
+        }
+        
+        private void OnregistraESOperationCompleted(object arg) {
+            if ((this.registraESCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registraESCompleted(this, new registraESCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/buscaFuncionarios", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet buscaFuncionarios(string nome) {
             object[] results = this.Invoke("buscaFuncionarios", new object[] {
                         nome});
@@ -133,7 +169,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/buscaDadosFuncionarios", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/buscaDadosFuncionarios", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet buscaDadosFuncionarios(int idFuncionario) {
             object[] results = this.Invoke("buscaDadosFuncionarios", new object[] {
                         idFuncionario});
@@ -162,7 +198,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/buscaPagamentos", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/buscaPagamentos", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet buscaPagamentos(int idFunc, int mes, int ano) {
             object[] results = this.Invoke("buscaPagamentos", new object[] {
                         idFunc,
@@ -195,7 +231,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/buscaFolhaPagamento", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/buscaFolhaPagamento", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet buscaFolhaPagamento(int mes, int ano) {
             object[] results = this.Invoke("buscaFolhaPagamento", new object[] {
                         mes,
@@ -226,7 +262,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/buscaBeneficio", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/buscaBeneficio", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet buscaBeneficio(int idFuncionario, int mes, int ano) {
             object[] results = this.Invoke("buscaBeneficio", new object[] {
                         idFuncionario,
@@ -259,7 +295,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/RH_MedicoEspecialidade", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/RH_MedicoEspecialidade", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet RH_MedicoEspecialidade(int IdEspecialidade, System.DateTime data) {
             object[] results = this.Invoke("RH_MedicoEspecialidade", new object[] {
                         IdEspecialidade,
@@ -290,7 +326,7 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3001/listEspecialidade", RequestNamespace="http://localhost:3001/", ResponseNamespace="http://localhost:3001/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:7088/listEspecialidade", RequestNamespace="http://localhost:7088/", ResponseNamespace="http://localhost:7088/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet listEspecialidade() {
             object[] results = this.Invoke("listEspecialidade", new object[0]);
             return ((System.Data.DataSet)(results[0]));
@@ -332,6 +368,32 @@ namespace ERP.Agendamento.Serviços.Utils.RH_Services {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void registraESCompletedEventHandler(object sender, registraESCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class registraESCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal registraESCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
         }
     }
     

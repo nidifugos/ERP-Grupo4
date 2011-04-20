@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\EntityDataModel.edmx.sql" />
     <Content Include="Views\Agendamento\Cancel.aspx" />
     <Content Include="Views\Agendamento\Confirm.aspx" />
     <Content Include="Views\Agendamento\Evaluate.aspx" />

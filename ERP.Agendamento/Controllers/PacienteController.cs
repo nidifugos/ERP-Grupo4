@@ -118,7 +118,7 @@ namespace ERP.Agendamento.Controllers
         {
             if ((string)Session["logged"] == "")
                 return RedirectToAction("Logon", "Account");
-            var agendamento = (from ag in entities.AgendamentoSets where ag.Paciente_Id == pPaciente.Id select ag).First();
+            Models.AgendamentoSet agendamento = (from ag in entities.AgendamentoSets where ag.Paciente_Id == pPaciente.Id select ag).First();
             if (agendamento != null)
             {
                 ERP.Agendamento.Controllers.HomeController.ErrorMessage = 
