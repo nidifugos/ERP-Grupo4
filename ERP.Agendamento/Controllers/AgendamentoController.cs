@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-using Microsoft.ServiceModel.Samples;
+using ERP.Agendamento.Serviços.Utils;
 
 namespace ERP.Agendamento.Controllers
 {
@@ -52,8 +51,22 @@ namespace ERP.Agendamento.Controllers
         {
             if ((string)Session["logged"] == "")
                 return RedirectToAction("Logon", "Account");
-            FornecedorServiços fs = new FornecedorServiços();
-            pAgendamento.Medico_Id = fs.RH_MedicoId(pAgendamento.Medico_Nome);
+            bool encontrou = false;
+            foreach (KeyValuePair<int, string> medico in SolicitadorServiços.AccessRH_MedicoEspecialidade(0, DateTime.Now))
+            {
+                if (medico.Value == pAgendamento.Medico_Nome)
+                {
+                    pAgendamento.Medico_Id = medico.Key;
+                    encontrou = true;
+                    break;
+                }
+            }
+            if (!encontrou)
+            {
+                //TODO Implementar tratamento do erro
+                return RedirectToAction("Index");
+            }
+            
             try
             {
                 if (!ModelState.IsValid)
@@ -100,8 +113,21 @@ namespace ERP.Agendamento.Controllers
         {
             if ((string)Session["logged"] == "")
                 return RedirectToAction("Logon", "Account");
-            FornecedorServiços fs = new FornecedorServiços();
-            agendamento.Medico_Id = fs.RH_MedicoId(agendamento.Medico_Nome);
+            bool encontrou = false;
+            foreach (KeyValuePair<int, string> medico in SolicitadorServiços.AccessRH_MedicoEspecialidade(0, DateTime.Now))
+            {
+                if (medico.Value == agendamento.Medico_Nome)
+                {
+                    agendamento.Medico_Id = medico.Key;
+                    encontrou = true;
+                    break;
+                }
+            }
+            if (!encontrou)
+            {
+                //TODO Implementar tratamento do erro
+                return RedirectToAction("Index");
+            }
             try
             {
                 var original = (from ag in entities.AgendamentoSets where ag.Id == agendamento.Id select ag).First();
@@ -162,9 +188,13 @@ namespace ERP.Agendamento.Controllers
         /// </summary>
         private void UpdateData()
         {
+            List<String> listaEspecialidades = new List<string>();
             // Especialidades
-            FornecedorServiços fs = new FornecedorServiços();
-            List<String> listaEspecialidades = fs.RH_Especialidade();
+            foreach (KeyValuePair<int, string> especialidade in SolicitadorServiços.AccessRH_Especialidade())
+            {
+                listaEspecialidades.Add(especialidade.Value);
+            }
+            
             List<SelectListItem> especialidades = new List<SelectListItem>();
             foreach (String espec in listaEspecialidades)
             {
@@ -188,7 +218,11 @@ namespace ERP.Agendamento.Controllers
             ViewData["Pacientes"] = pacientes;
             ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             // Médicos
-            List<string> listaMedicos = fs.RH_Medicos();
+            List<string> listaMedicos = new List<string>();
+            foreach (KeyValuePair<int, string> medico in SolicitadorServiços.AccessRH_MedicoEspecialidade(0, DateTime.Now))
+            {
+                listaMedicos.Add(medico.Value);
+            }
             List<SelectListItem> medicos = new List<SelectListItem>();
             foreach (string med in listaMedicos)
             {

@@ -14,8 +14,7 @@ namespace ERP.Agendamento
     {
         public static void RegisterRoutes(RouteCollection routes)
         {            
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");            
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
@@ -31,8 +30,7 @@ namespace ERP.Agendamento
 
         protected void Application_Start()
         {            
-            AreaRegistration.RegisterAllAreas();
-
+            AreaRegistration.RegisterAllAreas();            
             RegisterRoutes(RouteTable.Routes);
         }
     }

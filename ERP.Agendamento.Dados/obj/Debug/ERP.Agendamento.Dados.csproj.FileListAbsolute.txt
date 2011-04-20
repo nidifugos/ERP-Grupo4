@@ -11,9 +11,3 @@ C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dado
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.exe
 C:\Users\5945841\ERP-Grupo4\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.pdb
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.exe.config
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.exe
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\bin\Debug\ERP.Agendamento.Dados.pdb
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.exe
-C:\Users\5945751\Desktop\projeto\dev\final\ERP.Agendamento.Dados\obj\Debug\ERP.Agendamento.Dados.pdb

@@ -146,6 +146,10 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ERP.Agendamento.Dados\ERP.Agendamento.Dados.csproj">
+      <Project>{57BD8C0B-C0A2-4E8D-924B-C3FAD5B3072D}</Project>
+      <Name>ERP.Agendamento.Dados</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP.Agendamento.Serviços.Utils\ERP.Agendamento.Serviços.Utils.csproj">
       <Project>{7E51BAE8-D314-464D-A7BE-74643999B52D}</Project>
       <Name>ERP.Agendamento.Serviços.Utils</Name>

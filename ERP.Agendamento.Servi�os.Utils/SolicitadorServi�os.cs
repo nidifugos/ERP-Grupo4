@@ -24,10 +24,18 @@ namespace ERP.Agendamento.Serviços.Utils
 
         #region Acesso aos serviços do RH
 
-        public static List<string> AccessRH_MedicoEspecialidade(int cod_especialidade, DateTime data_inicio, DateTime data_fim)
+        public static List<KeyValuePair<int, string>> AccessRH_MedicoEspecialidade(int cod_especialidade, DateTime data)
         {
-            return null;
-        }
+            List<KeyValuePair<int, string>> returnList = new List<KeyValuePair<int, string>>();
+            foreach (DataTable table in servicoRH.RH_MedicoEspecialidade(cod_especialidade, data).Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    returnList.Add(new KeyValuePair<int, string>(Convert.ToInt32(row["ID"]), row["Nome"].ToString()));
+                }
+            }
+            return returnList;           
+        }        
 
         public static List<KeyValuePair<int, string>> AccessRH_Especialidade()
         {
