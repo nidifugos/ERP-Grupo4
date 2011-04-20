@@ -37,6 +37,17 @@ namespace ERP.Agendamento.Servicos
         }
 
         [WebMethod]
+        public List<Agendamento.Dados.Agendamento> AllAgendamentos()
+        {
+            List<Agendamento.Dados.Agendamento> returnList = new List<Agendamento.Dados.Agendamento>();
+            foreach(AgendamentoSet agendamentoSet in GerenciadorBanco.GetAllAgendamentos())
+            {
+                returnList.Add(new Dados.Agendamento(agendamentoSet.Medico_Id, agendamentoSet.Medico_Nome, agendamentoSet.Paciente_Id, agendamentoSet.PacienteSet.Nome, agendamentoSet.Datahora));
+            }
+            return returnList;
+        }
+
+        [WebMethod]
         public void NotificarManutencao(DateTime dataInicio, DateTime dataFim, int salaId)
         {
             GerenciadorBanco.AddManutencao(dataInicio, dataFim, salaId);

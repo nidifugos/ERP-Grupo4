@@ -19,6 +19,10 @@
     <EntitySetMapping Name="PacienteSets">
       <EntityTypeMapping TypeName="erp_agendamentoModel.PacienteSet">
         <MappingFragment StoreEntitySet="PacienteSet">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Rg" ColumnName="Rg" />

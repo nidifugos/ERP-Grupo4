@@ -1068,6 +1068,102 @@ namespace ERP.Agendamento.Models
         private Nullable<global::System.Int32> _Convenio;
         partial void OnConvenioChanging(Nullable<global::System.Int32> value);
         partial void OnConvenioChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Bairro
+        {
+            get
+            {
+                return _Bairro;
+            }
+            set
+            {
+                OnBairroChanging(value);
+                ReportPropertyChanging("Bairro");
+                _Bairro = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Bairro");
+                OnBairroChanged();
+            }
+        }
+        private global::System.String _Bairro;
+        partial void OnBairroChanging(global::System.String value);
+        partial void OnBairroChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Cidade
+        {
+            get
+            {
+                return _Cidade;
+            }
+            set
+            {
+                OnCidadeChanging(value);
+                ReportPropertyChanging("Cidade");
+                _Cidade = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Cidade");
+                OnCidadeChanged();
+            }
+        }
+        private global::System.String _Cidade;
+        partial void OnCidadeChanging(global::System.String value);
+        partial void OnCidadeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CEP
+        {
+            get
+            {
+                return _CEP;
+            }
+            set
+            {
+                OnCEPChanging(value);
+                ReportPropertyChanging("CEP");
+                _CEP = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CEP");
+                OnCEPChanged();
+            }
+        }
+        private global::System.String _CEP;
+        partial void OnCEPChanging(global::System.String value);
+        partial void OnCEPChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Estado
+        {
+            get
+            {
+                return _Estado;
+            }
+            set
+            {
+                OnEstadoChanging(value);
+                ReportPropertyChanging("Estado");
+                _Estado = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Estado");
+                OnEstadoChanged();
+            }
+        }
+        private global::System.String _Estado;
+        partial void OnEstadoChanging(global::System.String value);
+        partial void OnEstadoChanged();
 
         #endregion
     

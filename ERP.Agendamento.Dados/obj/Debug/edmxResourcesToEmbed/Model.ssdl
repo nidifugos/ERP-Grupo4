@@ -53,6 +53,10 @@
     <Property Name="TelefoneComercial" Type="nvarchar(max)" />
     <Property Name="TelefoneCelular" Type="nvarchar(max)" />
     <Property Name="Convenio" Type="int" />
+    <Property Name="Bairro" Type="nvarchar(max)" />
+    <Property Name="Cidade" Type="nvarchar(max)" />
+    <Property Name="CEP" Type="nvarchar(max)" />
+    <Property Name="Estado" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK_PacienteAgendamento">
     <End Role="PacienteSet" Type="erp_agendamentoModel.Store.PacienteSet" Multiplicity="1" />

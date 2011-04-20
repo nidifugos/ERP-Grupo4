@@ -55,6 +55,10 @@
     <Property Name="TelefoneCelular" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Convenio" Type="Int32" />
     <NavigationProperty Name="AgendamentoSets" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="PacienteSet" ToRole="AgendamentoSet" />
+    <Property Type="String" Name="Bairro" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Cidade" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CEP" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Estado" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_PacienteAgendamento">
     <End Role="PacienteSet" Type="erp_agendamentoModel.PacienteSet" Multiplicity="1" />

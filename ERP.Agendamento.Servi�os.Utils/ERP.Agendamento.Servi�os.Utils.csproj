@@ -80,6 +80,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Logistica_Services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Manutencao_Services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\RH_Services\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +118,16 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Logistica_Services\EspacoFisicoWS.wsdl" />
+    <None Include="Web References\Logistica_Services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Manutencao_Services\ManutencaoAgendamento.wsdl" />
+    <None Include="Web References\Manutencao_Services\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\RH_Services\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -132,6 +152,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_RH_Services_RH_Servico</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3002/EspacoFisicoWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Logistica_Services\</RelPath>
+      <UpdateFromURL>http://labsoft.pcs.usp.br:3002/EspacoFisicoWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_Logistica_Services_EspacoFisicoWS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3004/FornecedorServicos.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Agendamento_Services\</RelPath>
@@ -153,6 +184,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_Administracao_Services_AdministracaoWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://labsoft.pcs.usp.br:3006/ManutencaoAgendamento.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Manutencao_Services\</RelPath>
+      <UpdateFromURL>http://labsoft.pcs.usp.br:3006/ManutencaoAgendamento.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ERP_Agendamento_Serviços_Utils_Manutencao_Services_WebService1</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +227,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\Administracao_Services\AdministracaoWS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\Logistica_Services\EspacoFisicoWS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\Manutencao_Services\ManutencaoAgendamento.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

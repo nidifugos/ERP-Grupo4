@@ -59,6 +59,10 @@
           <Property Name="TelefoneComercial" Type="nvarchar(max)" />
           <Property Name="TelefoneCelular" Type="nvarchar(max)" />
           <Property Name="Convenio" Type="int" />
+          <Property Name="Bairro" Type="nvarchar(max)" />
+          <Property Name="Cidade" Type="nvarchar(max)" />
+          <Property Name="CEP" Type="nvarchar(max)" />
+          <Property Name="Estado" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -131,6 +135,10 @@
           <Property Name="TelefoneCelular" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Convenio" Type="Int32" />
           <NavigationProperty Name="AgendamentoSets" Relationship="erp_agendamentoModel.FK_PacienteAgendamento" FromRole="PacienteSet" ToRole="AgendamentoSet" />
+          <Property Type="String" Name="Bairro" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cidade" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CEP" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Estado" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_PacienteAgendamento">
           <End Role="PacienteSet" Type="erp_agendamentoModel.PacienteSet" Multiplicity="1" />
@@ -179,7 +187,11 @@
             <ScalarProperty Name="Especialidade" ColumnName="Especialidade" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="PacienteSets"><EntityTypeMapping TypeName="erp_agendamentoModel.PacienteSet"><MappingFragment StoreEntitySet="PacienteSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Nome" ColumnName="Nome" />
             <ScalarProperty Name="Rg" ColumnName="Rg" />
             <ScalarProperty Name="Cpf" ColumnName="Cpf" />

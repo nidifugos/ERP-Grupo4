@@ -25,6 +25,10 @@ namespace ERP.Agendamento.Dados
         public string telefone_comercial;
         public string telefone_celular;
         public int convenio;
+        public string bairro;
+        public string cidade;
+        public string cep;
+        public string estado;
 
         public Paciente()
         {
@@ -43,6 +47,10 @@ namespace ERP.Agendamento.Dados
             this.telefone_comercial = "";
             this.telefone_celular = "";
             this.convenio = 0;
+            this.bairro = "";
+            this.cidade = "";
+            this.cep = "";
+            this.estado = "";
         }
 
         public Paciente(PacienteSet paciente)
@@ -62,6 +70,10 @@ namespace ERP.Agendamento.Dados
             this.telefone_comercial = paciente.TelefoneComercial;
             this.telefone_celular = paciente.TelefoneCelular;
             this.convenio = (int) paciente.Convenio;
+            this.bairro = paciente.Bairro;
+            this.cidade = paciente.Cidade;
+            this.cep = paciente.CEP;
+            this.estado = paciente.Estado;
         }
 
         public Paciente(SerializationInfo info, StreamingContext ctxt)
@@ -81,6 +93,10 @@ namespace ERP.Agendamento.Dados
             this.telefone_comercial = (string)info.GetValue("TelefoneComercial", typeof(string));
             this.telefone_celular = (string)info.GetValue("TelefoneCelular", typeof(string));
             this.convenio = (int)info.GetValue("Convenio", typeof(int));
+            this.bairro = (string)info.GetValue("Bairro", typeof(string));
+            this.cidade = (string)info.GetValue("Cidade", typeof(string));
+            this.cep = (string)info.GetValue("CEP", typeof(string));
+            this.estado = (string)info.GetValue("Estado", typeof(string));
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
@@ -99,6 +115,10 @@ namespace ERP.Agendamento.Dados
             info.AddValue("TelefoneComercial", telefone_comercial);
             info.AddValue("TelefoneCelular", telefone_celular);
             info.AddValue("Convenio", convenio);
+            info.AddValue("Bairro", bairro);
+            info.AddValue("Cidade", cidade);
+            info.AddValue("CEP", cep);
+            info.AddValue("Estado", estado);
         }
     }
 }
