@@ -16,23 +16,20 @@ namespace ERP.Agendamento.Controllers
             return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "marcado" select agendamentos).ToList());
         }
 
-        public ActionResult Confirm()
-        {
-            return View();
-        }
+        //
+        // GET: /Agendamento/Confirm/5
 
-        [HttpPost]
-        public ActionResult Confirm(int agendamento_id)
+        public ActionResult Confirm(int id)
         {
-            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).First();
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == id select agendamentos).First();
             agendamento.Estado = "confirmado";
             entities.SaveChanges();
             return View();
         }
-        
-        public ActionResult Cancel(int agendamento_id)
+
+        public ActionResult Cancel(int id)
         {
-            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
+            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == id select agendamentos).FirstOrDefault();
             agendamento.Estado = "cancelado";
             entities.SaveChanges();
             return View();

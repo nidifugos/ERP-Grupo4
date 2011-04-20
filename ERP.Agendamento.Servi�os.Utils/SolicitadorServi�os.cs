@@ -12,13 +12,14 @@ namespace ERP.Agendamento.Serviços.Utils
         private static RH_Services.RH_Servico servicoRH = new RH_Services.RH_Servico();
         private static Manutencao_Services.WebService1 servicoManutencao = new Manutencao_Services.WebService1();
         private static Logistica_Services.EspacoFisicoWS servicoLogistica = new Logistica_Services.EspacoFisicoWS();
+        private static Agendamento_Services.FornecedorServicos servicoAgendamento = new Agendamento_Services.FornecedorServicos(); 
 
 
         #region Acesso aos serviços do agendamento (Para testes)
 
         //public static PacienteSet AccessAgendamento_Paciente(int id)
         //{
-        //    return client.Agendamento_Paciente(id);
+        //    return servicoAgendamento.AllAgendamentos();
         //}
 
         #endregion

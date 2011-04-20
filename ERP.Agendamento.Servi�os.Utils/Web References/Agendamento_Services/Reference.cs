@@ -26,12 +26,14 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="FornecedorServicosSoap", Namespace="http://labsoft.pcs.usp.br:3004/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="FornecedorServicosSoap", Namespace="http://localhost:3004/")]
     public partial class FornecedorServicos : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback AgendamentosByMedicosOperationCompleted;
         
         private System.Threading.SendOrPostCallback PacienteByIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AllAgendamentosOperationCompleted;
         
         private System.Threading.SendOrPostCallback NotificarManutencaoOperationCompleted;
         
@@ -82,13 +84,16 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
         public event PacienteByIdCompletedEventHandler PacienteByIdCompleted;
         
         /// <remarks/>
+        public event AllAgendamentosCompletedEventHandler AllAgendamentosCompleted;
+        
+        /// <remarks/>
         public event NotificarManutencaoCompletedEventHandler NotificarManutencaoCompleted;
         
         /// <remarks/>
         public event NotificarFeriasCompletedEventHandler NotificarFeriasCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://labsoft.pcs.usp.br:3004/AgendamentosByMedicos", RequestNamespace="http://labsoft.pcs.usp.br:3004/", ResponseNamespace="http://labsoft.pcs.usp.br:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3004/AgendamentosByMedicos", RequestNamespace="http://localhost:3004/", ResponseNamespace="http://localhost:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Agendamento[] AgendamentosByMedicos(int id) {
             object[] results = this.Invoke("AgendamentosByMedicos", new object[] {
                         id});
@@ -117,7 +122,7 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://labsoft.pcs.usp.br:3004/PacienteById", RequestNamespace="http://labsoft.pcs.usp.br:3004/", ResponseNamespace="http://labsoft.pcs.usp.br:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3004/PacienteById", RequestNamespace="http://localhost:3004/", ResponseNamespace="http://localhost:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Paciente PacienteById(int id) {
             object[] results = this.Invoke("PacienteById", new object[] {
                         id});
@@ -146,7 +151,34 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://labsoft.pcs.usp.br:3004/NotificarManutencao", RequestNamespace="http://labsoft.pcs.usp.br:3004/", ResponseNamespace="http://labsoft.pcs.usp.br:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3004/AllAgendamentos", RequestNamespace="http://localhost:3004/", ResponseNamespace="http://localhost:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Agendamento[] AllAgendamentos() {
+            object[] results = this.Invoke("AllAgendamentos", new object[0]);
+            return ((Agendamento[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AllAgendamentosAsync() {
+            this.AllAgendamentosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void AllAgendamentosAsync(object userState) {
+            if ((this.AllAgendamentosOperationCompleted == null)) {
+                this.AllAgendamentosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAllAgendamentosOperationCompleted);
+            }
+            this.InvokeAsync("AllAgendamentos", new object[0], this.AllAgendamentosOperationCompleted, userState);
+        }
+        
+        private void OnAllAgendamentosOperationCompleted(object arg) {
+            if ((this.AllAgendamentosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AllAgendamentosCompleted(this, new AllAgendamentosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3004/NotificarManutencao", RequestNamespace="http://localhost:3004/", ResponseNamespace="http://localhost:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void NotificarManutencao(System.DateTime dataInicio, System.DateTime dataFim, int salaId) {
             this.Invoke("NotificarManutencao", new object[] {
                         dataInicio,
@@ -178,7 +210,7 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://labsoft.pcs.usp.br:3004/NotificarFerias", RequestNamespace="http://labsoft.pcs.usp.br:3004/", ResponseNamespace="http://labsoft.pcs.usp.br:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost:3004/NotificarFerias", RequestNamespace="http://localhost:3004/", ResponseNamespace="http://localhost:3004/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void NotificarFerias(System.DateTime dataInicio, System.DateTime dataFim, int medicoId) {
             this.Invoke("NotificarFerias", new object[] {
                         dataInicio,
@@ -233,7 +265,7 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://labsoft.pcs.usp.br:3004/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:3004/")]
     public partial class Agendamento {
         
         private int medico_idField;
@@ -302,7 +334,7 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://labsoft.pcs.usp.br:3004/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost:3004/")]
     public partial class Paciente {
         
         private string nomeField;
@@ -334,6 +366,14 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
         private string telefone_celularField;
         
         private int convenioField;
+        
+        private string bairroField;
+        
+        private string cidadeField;
+        
+        private string cepField;
+        
+        private string estadoField;
         
         /// <remarks/>
         public string nome {
@@ -484,6 +524,46 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
                 this.convenioField = value;
             }
         }
+        
+        /// <remarks/>
+        public string bairro {
+            get {
+                return this.bairroField;
+            }
+            set {
+                this.bairroField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string cidade {
+            get {
+                return this.cidadeField;
+            }
+            set {
+                this.cidadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string cep {
+            get {
+                return this.cepField;
+            }
+            set {
+                this.cepField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -534,6 +614,32 @@ namespace ERP.Agendamento.Serviços.Utils.Agendamento_Services {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Paciente)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void AllAgendamentosCompletedEventHandler(object sender, AllAgendamentosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AllAgendamentosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AllAgendamentosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Agendamento[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Agendamento[])(this.results[0]));
             }
         }
     }
