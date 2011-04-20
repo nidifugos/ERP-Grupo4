@@ -1,20 +1,20 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ERP.Agendamento.Models.LogOnModel>" %>
 
 <asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Log On
+    Login
 </asp:Content>
 
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Log On</h2>
+    <h2>Login</h2>
     <p>
-        Please enter your username and password. <%: Html.ActionLink("Register", "Register") %> if you don't have an account.
+        Efetue seu login - <%: Html.ActionLink("registre-se", "Register") %> caso você ainda não possua uma conta.
     </p>
 
     <% using (Html.BeginForm()) { %>
-        <%: Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.") %>
+        <%: Html.ValidationSummary(true, "Login não realizado.") %>
         <div>
             <fieldset>
-                <legend>Account Information</legend>
+                <legend>Informações</legend>
                 
                 <div class="editor-label">
                     <%: Html.LabelFor(m => m.UserName) %>

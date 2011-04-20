@@ -9,6 +9,7 @@
           <EntitySet Name="AgendamentoSet" EntityType="erp_agendamentoModel.Store.AgendamentoSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ManutencaoSet" EntityType="erp_agendamentoModel.Store.ManutencaoSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PacienteSet" EntityType="erp_agendamentoModel.Store.PacienteSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="erp_agendamentoModel.Store.Users" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_PacienteAgendamento" Association="erp_agendamentoModel.Store.FK_PacienteAgendamento">
             <End Role="PacienteSet" EntitySet="PacienteSet" />
             <End Role="AgendamentoSet" EntitySet="AgendamentoSet" />
@@ -59,6 +60,14 @@
           <Property Name="TelefoneCelular" Type="nvarchar(max)" />
           <Property Name="Convenio" Type="int" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Login" Type="varchar(max)" Nullable="false" />
+          <Property Name="Senha" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <Association Name="FK_PacienteAgendamento">
           <End Role="PacienteSet" Type="erp_agendamentoModel.Store.PacienteSet" Multiplicity="1" />
           <End Role="AgendamentoSet" Type="erp_agendamentoModel.Store.AgendamentoSet" Multiplicity="*" />
@@ -83,6 +92,7 @@
             <End Role="AgendamentoSet" EntitySet="AgendamentoSets" />
           </AssociationSet>
           <EntitySet Name="ManutencaoSets" EntityType="erp_agendamentoModel.ManutencaoSet" />
+          <EntitySet Name="Users" EntityType="erp_agendamentoModel.User" />
         </EntityContainer>
         <EntityType Name="AgendamentoSet">
           <Key>
@@ -143,6 +153,14 @@
           <Property Type="DateTime" Name="Data_Fim" Nullable="false" />
           <Property Type="Int32" Name="Sala_Id" Nullable="false" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Senha" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -189,6 +207,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="erp_agendamentoModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -217,6 +244,7 @@
           <ConnectorPoint PointX="3" PointY="3.2785953776041667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="erp_agendamentoModel.ManutencaoSet" Width="1.5" PointX="4.875" PointY="2.625" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="erp_agendamentoModel.User" Width="1.5" PointX="3.375" PointY="5.75" Height="1.5956835937499996" />
       </Diagram>
     </Diagrams>
   </Designer>

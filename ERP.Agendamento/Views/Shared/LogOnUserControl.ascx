@@ -1,14 +1,22 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
-<%
-    if (Request.IsAuthenticated) {
+<% 
+    if (Session["logged"] != "")
+    {
 %>
-        Welcome <b><%: Page.User.Identity.Name %></b>!
-        [ <%: Html.ActionLink("Log Off", "LogOff", "Account") %> ]
-<%
+<b>
+<%: 
+        Session["logged"]
+%>
+        </b><br />
+<%:     
+        Html.ActionLink("Logoff", "LogOff", "Account")
+%>
+<%        
     }
-    else {
-%> 
-        [ <%: Html.ActionLink("Log On", "LogOn", "Account") %> ]
+    else
+    {
+%>
+<%:     Html.ActionLink("Login", "LogOn", "Account")%>
 <%
     }
 %>

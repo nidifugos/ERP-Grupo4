@@ -15,6 +15,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Index()
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             ViewData["Medicos"] = (from agendamento in entities.AgendamentoSets group agendamento by agendamento.Medico_Id into medicos select medicos).ToList();
             return View();
         }
@@ -24,8 +26,10 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
-             ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Models.GerenciadorRelatórios.AgendaMédica(id, 6);
-             ViewData["Agendamentos"] = agenda.Agenda.ToList();
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
+            ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica agenda = new ERP.Agendamento.Dados.GerenciadorRelatórios.AgendaMédica(id, 6);
+            ViewData["Agendamentos"] = agenda.Agenda;
             return View();
         }
     }

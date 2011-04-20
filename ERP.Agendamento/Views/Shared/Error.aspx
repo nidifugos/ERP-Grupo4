@@ -7,7 +7,7 @@
 <asp:Content ID="errorContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3>        
         <%: ERP.Agendamento.Controllers.HomeController.ErrorMessage %>
-        <br />
+        <br /><br />
         <%: Html.ActionLink("Home", "Index", "Home")%>
     </h3>
 </asp:Content>

@@ -11,10 +11,10 @@ using ERP.Agendamento.Models;
 
 namespace ERP.Agendamento.Controllers
 {
-
     [HandleError]
     public class AccountController : Controller
     {
+        Models.erp_agendamentoEntities entities = new Models.erp_agendamentoEntities();
 
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
@@ -39,6 +39,7 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
+            /*
             if (ModelState.IsValid)
             {
                 if (MembershipService.ValidateUser(model.UserName, model.Password))
@@ -55,11 +56,33 @@ namespace ERP.Agendamento.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Usuário ou senha incorretos.");
                 }
             }
 
             // If we got this far, something failed, redisplay form
+            return View(model);
+            */
+
+            try
+            {
+                var user = (from us in entities.Users where us.Login == model.UserName select us).First();
+                if (user.Senha == model.Password)
+                {
+                    Session["logged"] = user.Login;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    Session["logged"] = "";
+                    ModelState.AddModelError("", "Usuário ou senha incorretos.");                
+                }                
+            }
+            catch
+            {
+                Session["logged"] = "";
+                ModelState.AddModelError("", "Usuário ou senha incorretos.");
+            }
             return View(model);
         }
 
@@ -69,8 +92,11 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult LogOff()
         {
+            /*
             FormsService.SignOut();
+            */
 
+            Session["logged"] = "";
             return RedirectToAction("Index", "Home");
         }
 
@@ -81,31 +107,70 @@ namespace ERP.Agendamento.Controllers
         public ActionResult Register()
         {
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            //ViewData["PasswordLength"] = 0;
             return View();
         }
 
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            /*
             if (ModelState.IsValid)
-            {
+            {               
                 // Attempt to register the user
                 MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+
+                    FormsService.SignIn(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", AccountValidation.ErrorCodeToString(createStatus));
-                }
+                }                
             }
 
             // If we got this far, something failed, redisplay form
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
             return View(model);
+
+            */
+
+            Models.User user = new Models.User();
+            try
+            {                
+                user.Id = GetNewId();
+                user.Login = model.UserName;
+                user.Senha = model.Password;
+                entities.AddToUsers(user);
+                entities.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            catch
+            {                       
+                ModelState.AddModelError("", "Não foi possível cadastrar usuário com id " + user.Id + 
+                    " e login " + user.Login);
+            }
+            return View(model);
+        }
+
+        private string GetNewId()
+        {
+            /*
+            try
+            {
+                var user = (from us in entities.Users select us).Last();            
+                return Convert.ToString(Convert.ToInt32(user.Id) + 1);
+            }
+            catch
+            {
+                return "1";
+            }
+            */
+            Random random = new Random();
+            return Convert.ToString(random.Next());
         }
 
         // **************************************
@@ -148,6 +213,5 @@ namespace ERP.Agendamento.Controllers
         {
             return View();
         }
-
     }
 }

@@ -117,6 +117,22 @@ namespace ERP.Agendamento.Models
             }
         }
         private ObjectSet<ManutencaoSet> _ManutencaoSets;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<User> Users
+        {
+            get
+            {
+                if ((_Users == null))
+                {
+                    _Users = base.CreateObjectSet<User>("Users");
+                }
+                return _Users;
+            }
+        }
+        private ObjectSet<User> _Users;
 
         #endregion
         #region AddTo Methods
@@ -143,6 +159,14 @@ namespace ERP.Agendamento.Models
         public void AddToManutencaoSets(ManutencaoSet manutencaoSet)
         {
             base.AddObject("ManutencaoSets", manutencaoSet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUsers(User user)
+        {
+            base.AddObject("Users", user);
         }
 
         #endregion
@@ -1072,6 +1096,113 @@ namespace ERP.Agendamento.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="erp_agendamentoModel", Name="User")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class User : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new User object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="login">Initial value of the Login property.</param>
+        /// <param name="senha">Initial value of the Senha property.</param>
+        public static User CreateUser(global::System.String id, global::System.String login, global::System.String senha)
+        {
+            User user = new User();
+            user.Id = id;
+            user.Login = login;
+            user.Senha = senha;
+            return user;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.String _Id;
+        partial void OnIdChanging(global::System.String value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Login
+        {
+            get
+            {
+                return _Login;
+            }
+            set
+            {
+                OnLoginChanging(value);
+                ReportPropertyChanging("Login");
+                _Login = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Login");
+                OnLoginChanged();
+            }
+        }
+        private global::System.String _Login;
+        partial void OnLoginChanging(global::System.String value);
+        partial void OnLoginChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Senha
+        {
+            get
+            {
+                return _Senha;
+            }
+            set
+            {
+                OnSenhaChanging(value);
+                ReportPropertyChanging("Senha");
+                _Senha = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Senha");
+                OnSenhaChanged();
+            }
+        }
+        private global::System.String _Senha;
+        partial void OnSenhaChanging(global::System.String value);
+        partial void OnSenhaChanged();
+
+        #endregion
+    
     }
 
     #endregion

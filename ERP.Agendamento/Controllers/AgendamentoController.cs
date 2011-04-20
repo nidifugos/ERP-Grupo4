@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ERP.Agendamento.Serviços.Utils;
+
+using Microsoft.ServiceModel.Samples;
 
 namespace ERP.Agendamento.Controllers
 {
@@ -16,6 +17,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Index()
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             return View(entities.AgendamentoSets.ToList());
         }
 
@@ -24,6 +27,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
             return View(agendamento);
         }
@@ -33,6 +38,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Create()
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             UpdateData();               
             return View();
         } 
@@ -42,7 +49,11 @@ namespace ERP.Agendamento.Controllers
 
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "id")]Models.AgendamentoSet pAgendamento)
-        {   
+        {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
+            FornecedorServiços fs = new FornecedorServiços();
+            pAgendamento.Medico_Id = fs.RH_MedicoId(pAgendamento.Medico_Nome);
             try
             {
                 if (!ModelState.IsValid)
@@ -64,8 +75,20 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Edit(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             UpdateData();
             var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();            
+            // ================================
+            // mantém o correto pré-selecionado
+            SelectList listaPacientes = (SelectList)ViewData["Pacientes"];
+            foreach (SelectListItem pac in listaPacientes)
+            {
+                if (Convert.ToInt32(pac.Value) == id)
+                {                    
+                }                
+            }
+            // ================================            
             return View(agendamento);
         }
 
@@ -75,6 +98,10 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Edit(Models.AgendamentoSet agendamento)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
+            FornecedorServiços fs = new FornecedorServiços();
+            agendamento.Medico_Id = fs.RH_MedicoId(agendamento.Medico_Nome);
             try
             {
                 var original = (from ag in entities.AgendamentoSets where ag.Id == agendamento.Id select ag).First();
@@ -95,6 +122,8 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Delete(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var agendamento = (from ag in entities.AgendamentoSets where ag.Id == id select ag).First();
             return View(agendamento);
         }
@@ -105,6 +134,8 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Delete(Models.AgendamentoSet pAgendamento)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             try
             {
                 var agendamento = (from ag in entities.AgendamentoSets where ag.Id == pAgendamento.Id select ag).First();
@@ -116,48 +147,6 @@ namespace ERP.Agendamento.Controllers
             {
                 return View();
             }
-        }
-
-
-        //
-        // GET: /Agendamento/Consolidate
-
-        public ActionResult Consolidate()
-        {
-            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "remarcar" select agendamentos).ToList());
-        }
-
-
-        //
-        // GET: /Agendamento/Evaluate
-
-        public ActionResult Evaluate()
-        {
-            return View((from agendamentos in entities.AgendamentoSets where agendamentos.Estado == "marcado" select agendamentos).ToList());
-        }
-
-
-        //
-        // GET: /Agendamento/Confirm
-
-        public ActionResult Confirm(int agendamento_id)
-        {
-            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
-            agendamento.Estado = "confirmado";
-            entities.SaveChanges();
-            return View();
-        }
-
-
-        //
-        // GET: /Agendamento/Cancel
-
-        public ActionResult Cancel(int agendamento_id)
-        {
-            Models.AgendamentoSet agendamento = (from agendamentos in entities.AgendamentoSets where agendamentos.Id == agendamento_id select agendamentos).FirstOrDefault();
-            agendamento.Estado = "cancelado";
-            entities.SaveChanges();
-            return View();
         }
 
         public string ShowPaciente()
@@ -174,13 +163,14 @@ namespace ERP.Agendamento.Controllers
         private void UpdateData()
         {
             // Especialidades
-            List<KeyValuePair<int, string>> listaEspecialidades = SolicitadorServiços.AccessRH_Especialidade();
+            FornecedorServiços fs = new FornecedorServiços();
+            List<String> listaEspecialidades = fs.RH_Especialidade();
             List<SelectListItem> especialidades = new List<SelectListItem>();
-            foreach (KeyValuePair<int, string> espec in listaEspecialidades)
+            foreach (String espec in listaEspecialidades)
             {
                 especialidades.Add(new SelectListItem
                 {
-                    Text = espec.Value,
+                    Text = espec,                    
                 });
             }
             ViewData["Especialidade"] = especialidades;
@@ -192,23 +182,19 @@ namespace ERP.Agendamento.Controllers
                 pacientes.Add(new SelectListItem
                 {
                     Text = pac.Nome + " [" + pac.Cpf + "]",
-                    Value = Convert.ToString(pac.Id),
+                    Value = Convert.ToString(pac.Id),                    
                 });
             }
             ViewData["Pacientes"] = pacientes;
             ViewData["Paciente_Id"] = pacientes.AsEnumerable<SelectListItem>();
             // Médicos
-            List<string> listaMedicos = SolicitadorServiços.AccessRH_MedicoEspecialidade(1, DateTime.Now, DateTime.Now.AddDays(300));
-            List<string> listaFake = new List<string>();
-            listaFake.Add("Perilonio");
-            listaFake.Add("Adalberto");
-            listaFake.Add("Roberval");
+            List<string> listaMedicos = fs.RH_Medicos();
             List<SelectListItem> medicos = new List<SelectListItem>();
-            foreach (string med in listaFake)
+            foreach (string med in listaMedicos)
             {
                 medicos.Add(new SelectListItem
                 {
-                    Text = med,
+                    Text = med,                    
                 });
             }
             ViewData["Medico_Nome"] = medicos;

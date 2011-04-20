@@ -15,6 +15,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Index()
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             return View(entities.PacienteSets.ToList());
         }
 
@@ -23,6 +25,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Details(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
@@ -32,6 +36,8 @@ namespace ERP.Agendamento.Controllers
 
         public ActionResult Create()
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             return View();   
         } 
 
@@ -41,6 +47,8 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "id")]Models.PacienteSet pPaciente)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");            
             try
             {
                 if (!ModelState.IsValid)
@@ -62,6 +70,8 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Edit(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
@@ -72,6 +82,8 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Edit(Models.PacienteSet paciente)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             try
             {
                 var original = (from pac in entities.PacienteSets where pac.Id == paciente.Id select pac).First();
@@ -92,6 +104,8 @@ namespace ERP.Agendamento.Controllers
  
         public ActionResult Delete(int id)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var paciente = (from pac in entities.PacienteSets where pac.Id == id select pac).First();
             return View(paciente);
         }
@@ -102,6 +116,8 @@ namespace ERP.Agendamento.Controllers
         [HttpPost]
         public ActionResult Delete(Models.PacienteSet pPaciente)
         {
+            if ((string)Session["logged"] == "")
+                return RedirectToAction("Logon", "Account");
             var agendamento = (from ag in entities.AgendamentoSets where ag.Paciente_Id == pPaciente.Id select ag).First();
             if (agendamento != null)
             {

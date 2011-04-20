@@ -13,7 +13,7 @@ namespace ERP.Agendamento
     public class MvcApplication : System.Web.HttpApplication
     {
         public static void RegisterRoutes(RouteCollection routes)
-        {
+        {            
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -24,8 +24,13 @@ namespace ERP.Agendamento
 
         }
 
-        protected void Application_Start()
+        protected void Session_Start()
         {
+            Session["logged"] = "";
+        }
+
+        protected void Application_Start()
+        {            
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);

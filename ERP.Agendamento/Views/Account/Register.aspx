@@ -1,23 +1,20 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ERP.Agendamento.Models.RegisterModel>" %>
 
 <asp:Content ID="registerTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Register
+    Registro
 </asp:Content>
 
 <asp:Content ID="registerContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Create a New Account</h2>
+    <h2>Criar uma nova conta</h2>
     <p>
-        Use the form below to create a new account. 
-    </p>
-    <p>
-        Passwords are required to be a minimum of <%: ViewData["PasswordLength"] %> characters in length.
-    </p>
+        Preencha o formulário a seguir para criar sua conta.
+    </p>    
 
     <% using (Html.BeginForm()) { %>
-        <%: Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.") %>
+        <%: Html.ValidationSummary(true, "A conta não pôde ser criada.") %>
         <div>
             <fieldset>
-                <legend>Account Information</legend>
+                <legend>Informações sobre a conta</legend>
                 
                 <div class="editor-label">
                     <%: Html.LabelFor(m => m.UserName) %>
@@ -25,15 +22,7 @@
                 <div class="editor-field">
                     <%: Html.TextBoxFor(m => m.UserName) %>
                     <%: Html.ValidationMessageFor(m => m.UserName) %>
-                </div>
-                
-                <div class="editor-label">
-                    <%: Html.LabelFor(m => m.Email) %>
-                </div>
-                <div class="editor-field">
-                    <%: Html.TextBoxFor(m => m.Email) %>
-                    <%: Html.ValidationMessageFor(m => m.Email) %>
-                </div>
+                </div>                                
                 
                 <div class="editor-label">
                     <%: Html.LabelFor(m => m.Password) %>
@@ -41,18 +30,9 @@
                 <div class="editor-field">
                     <%: Html.PasswordFor(m => m.Password) %>
                     <%: Html.ValidationMessageFor(m => m.Password) %>
-                </div>
-                
-                <div class="editor-label">
-                    <%: Html.LabelFor(m => m.ConfirmPassword) %>
-                </div>
-                <div class="editor-field">
-                    <%: Html.PasswordFor(m => m.ConfirmPassword) %>
-                    <%: Html.ValidationMessageFor(m => m.ConfirmPassword) %>
-                </div>
-                
+                </div>                
                 <p>
-                    <input type="submit" value="Register" />
+                    <input type="submit" value="Registrar" />
                 </p>
             </fieldset>
         </div>
